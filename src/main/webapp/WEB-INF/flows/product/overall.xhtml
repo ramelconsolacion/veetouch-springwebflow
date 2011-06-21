@@ -1,0 +1,48 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+	Functional
+	Use for display
+		- Overall system can do
+		- New Product server
+		- New Product client
+		- New Product client_plugin
+		- New Product server_plugin
+ -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.prime.com.tr/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+	
+	<ui:define name="header">
+		<div id="topmenu">
+			<ul id="nav">
+				<li><a href="home">Home</a></li>
+				<li><a href="about">About</a></li>
+				<li id="selected"><a href="product">Product</a></li>
+				<li><a href="solution">Solution</a></li>
+				<li><a href="contact">Contact</a></li>
+			</ul>
+		</div>
+		<script>
+			jQuery(document).ready(function() {
+				jQuery('#nav').spasticNav();
+			});
+		</script>
+	</ui:define>
+	
+	<ui:define name="title">VT Product</ui:define>
+		
+	<ui:define name="content">
+		<p:galleria value="#{galleriaOverall.images}" 
+			var="image" effectspeed="1000"
+			panelWidth="500" panelHeight="250"
+			showCaptions="true" showOverlays="true">  
+    		<p:graphicImage value="/images/galleria/#{image}" />
+    		<p:galleriaOverlay title="#{image}">  
+        		Description for #{image} goes here
+    		</p:galleriaOverlay>
+		</p:galleria>
+	</ui:define>
+</ui:composition>
