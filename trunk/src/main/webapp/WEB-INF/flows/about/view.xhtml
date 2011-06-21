@@ -1,0 +1,78 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+	Functional
+	Use for About veetouch do and next to do
+	
+ -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.prime.com.tr/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+
+	<ui:define name="header">
+		<div id="topmenu">
+			<ul id="nav">
+				<li><a href="home">Home</a></li>
+				<li id="selected"><a href="about">About</a></li>
+				<li><a href="product">Product</a></li>
+				<li><a href="solution">Solution</a></li>
+				<li><a href="contact">Contact</a></li>
+			</ul>
+		</div>
+		<script>
+			jQuery(document).ready(function() {
+				jQuery('#nav').spasticNav();
+			});
+		</script>
+	</ui:define>
+	
+	<ui:define name="title">About us</ui:define>
+	
+	<ui:define name="content">
+		<p:layout style="width:950px;height:300px;">
+		    <p:layoutUnit position="left" width="300">
+		        <p:panel>
+					<f:facet name="header" style="width: 10px;" styleClass="news-panel-header" headerClass="news-panel-header">
+						<h:outputText value="News Panel Header" />
+					</f:facet>
+					<h:outputText value="Content axcvxcvxzvxvxcvxzcvzxcvxzv\naskdjflskdjf;l" />
+				</p:panel>
+				<p:spacer height="20" />
+				<p:panel>
+					<f:facet name="header">
+						<h:outputText value="Header Text" />
+					</f:facet>
+					<h:outputText value="Content axcvxcvxzvxvxcvxzcvzxcvxzv\naskdjflskdjf;l" />
+				</p:panel>
+				<p:spacer height="20" />
+				<p:panel>
+					<f:facet name="header">
+						<h:outputText value="Header Text" />
+					</f:facet>
+					<h:outputText value="Content axcvxcvxzvxvxcvxzcvzxcvxzv\naskdjflskdjf;l" />
+				</p:panel>
+		    </p:layoutUnit>
+		    <p:layoutUnit position="center">  
+		    
+		    	<p:panel styleClass="news-panel">
+		    		<h:outputText value="News Panel" />
+		    	</p:panel>
+		    	<p:panel styleClass="information-panel">
+		    		<h:outputText value="Information Panel" />
+		    	</p:panel>
+		    	<p:panel styleClass="notice-panel">
+		    		<h:outputText value="notice Panel" />
+		    	</p:panel>
+		    	
+		        <p:panel>
+					<f:facet name="header">
+						<h:outputText value="Header Text" />
+					</f:facet>
+					<h:outputText value="Content axcvxcvxzvxvxcvxzcvzxcvxzv\naskdjflskdjf;l" />
+				</p:panel>
+		    </p:layoutUnit>
+		</p:layout>
+	</ui:define>
+</ui:composition>
