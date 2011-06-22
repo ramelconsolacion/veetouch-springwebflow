@@ -32,17 +32,21 @@
 </h:head>
 <h:body>
 <div class="container">
-	<div class="header" style="padding-top: 18px;padding-bottom: 18px;">
-		<h1>VT</h1>
-		<ui:insert name="header"/>
+	<div class="header" style="padding-top: 18px;padding-bottom: 18px;padding-left: 18px;padding-right: 18px;">
+		<div class="content">
+			<h1>VT</h1>
+			<ui:insert name="header"/>
+		</div>
 	</div>
 	<div style="padding-top: 50px;">
-		<h3 class="alt">
+		<div class="content">
 			<ui:insert name="title"/>
-		</h3>
+		</div>
 	</div>
 	<div>
-		<ui:insert name="content"/>
+		<div class="content">
+			<ui:insert name="content"/>
+		</div>	
 	</div>
 </div>
 <div class="footer">
