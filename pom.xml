@@ -163,7 +163,12 @@
 			<name>JBoss Maven Release Repository</name>			
 			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>
 			<snapshots><enabled>false</enabled></snapshots>			
-		</repository>		
+		</repository>	
+		<repository>
+            <id>JBOSS</id>
+            <name>JBoss Repository</name>
+            <url>http://repository.jboss.org/maven2/</url>
+        </repository>	
 		<!-- For Sun Mojarra JSF 2 implementation -->
 		<repository>
 			<id>maven2-repository.dev.java.net</id>

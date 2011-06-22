@@ -2,6 +2,15 @@
 Default
 
 -------------------------------------------*/
+body {
+	background-color: #EEEFF0;
+}
+
+.content {
+	width: 950px;
+	margin: auto;
+}
+
 .center-div {
 	display: block;
 	margin: auto;
@@ -9,6 +18,21 @@ Default
 }
 .center-div div {
     margin: auto;
+}
+
+/*-------------------------------------------
+Header
+
+-------------------------------------------*/
+.header {
+	background-attachment: scroll;
+	background-clip: border-box;
+	background-color: #12719E;
+	background-image: url("../images/templates/header/index.png");
+	background-origin: padding-box;
+    background-position: 50% 0;
+    background-repeat: repeat-x;
+    background-size: auto auto;
 }
 
 /*-------------------------------------------
@@ -30,6 +54,9 @@ Panel
 .ui-panel-titlebar {
 	border: 0 solid #A8A8A8;
 	border-radius: 8px 8px 0 0;
+}
+.ui-widget-content {
+	background-color: #EEEFF0;
 }
 
 /*-- News 
