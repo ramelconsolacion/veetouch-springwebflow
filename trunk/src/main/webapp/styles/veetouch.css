@@ -21,19 +21,32 @@ body {
 }
 
 /*-------------------------------------------
-Header
+Header 
 
 -------------------------------------------*/
-.header {
-	background-attachment: scroll;
-	background-clip: border-box;
-	background-color: #12719E;
-	background-image: url("../images/templates/header/index.png");
-	background-origin: padding-box;
-    background-position: 50% 0;
-    background-repeat: repeat-x;
-    background-size: auto auto;
+/* air theme */
+#page-header {
+	background: url("../images/templates/header/bg.png") repeat-x scroll 50% 0 #12719E;
 }
+
+.page-header-img {
+	background: url("../images/templates/header/glitter_blue.jpg") no-repeat scroll 50% 0 transparent;
+	min-height: 180px;
+}
+
+#headerbar {
+	background: url("../images/templates/header/headerbar_bg.png") repeat-x scroll 50% 100% transparent;
+	min-height: 145px;
+	background-image: url("../images/templates/header/headerbar_glass.png");
+	
+}
+
+#headermodules {
+	padding: 25px 0 30px;
+	color: #FFFFFF;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
 
 /*-------------------------------------------
 Panel
@@ -73,7 +86,7 @@ Panel
 .news-panel-blue {
 	border: 0 solid #36363B;
 	border-radius: 8px 8px 8px 8px;
-	background: url("../images/templates/bg-service-box-top-blue.gif") no-repeat scroll 0 0 #36363B;
+	background: url("../images/templates/box/bg-service-box-top-blue.gif") no-repeat scroll 0 0 #36363B;
 	width: 460px;
     height: 170px;
 	padding-top: 10px;
@@ -81,7 +94,7 @@ Panel
 .news-panel-green {
 	border: 0 solid #36363B;
 	border-radius: 8px 8px 8px 8px;
-	background: url("../images/templates/bg-service-box-top-green.gif") no-repeat scroll 0 0 #36363B;
+	background: url("../images/templates/box/bg-service-box-top-green.gif") no-repeat scroll 0 0 #36363B;
 	width: 460px;
     height: 170px;
 	padding-top: 10px;
@@ -122,11 +135,41 @@ Panel
 Footer
 
 -------------------------------------------*/
-.footer {width:950px;margin:0 auto;padding-top: 20px;}
-footer-wrap { clear: both; position: relative; top: 0; width:100%; background-color: #fff; padding:0;}
-#footer {float: left; width: 100%; margin: 3em 0 0 0; background: #eeefef; clear: both; height: 24px; padding-top: 8px}
-#footer * { color: #97969a; display: inline; font-size: 11px; text-transform: uppercase; }
-	#footer address { padding-left: 21px; margin-right: 30px; }
-#footer ul {list-style: none; }
-	#footer li {background: none; margin: 0; padding: 0;}
-#footer li a { color: #807f83; border-bottom: 1px solid #e3e}
+#page-footer {
+	background: url("../images/templates/footer/bg.png") repeat-x scroll 50% 0 transparent;
+	min-height: 40px;
+}
+
+#footer {
+	clear: both;
+    color: #FFFFFF;
+    font-size: 10px;
+    padding: 30px 0 20px;
+    position: relative;
+    text-align: center;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.footer-menu {
+    display: block;
+    line-height: 14px;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    padding-left: 30px;
+}
+
+.footer-menu li {
+	display: inline-block;
+    margin: 0;
+    padding: 0;
+    line-height: 14px;
+}
+
+.footer-menu-item {
+	color: #FFFFFF;
+	text-decoration: none;
+	background: url("../images/templates/etc/seperator.png") no-repeat scroll 0 50% transparent;
+	overflow: hidden;
+    padding: 0 15px 0 14px;
+}
