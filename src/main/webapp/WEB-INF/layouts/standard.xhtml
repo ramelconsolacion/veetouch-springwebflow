@@ -9,65 +9,77 @@
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>VT</title>
-		<!-- Add All Primefaces resource and Jquery -->
-	<p:resource name="/jquery/jquery.js" />
-	<p:resource name="/core/core.js"/>
-	<p:resource name="/easing/easing.js"/>
-	<h:outputScript library="primefaces" name="jquery/jquery.js" />
-	<h:outputScript library="primefaces" name="core/core.js" />
-	<h:outputScript library="primefaces" name="easing/easing.js" />
 	
 	<link rel="stylesheet" href="${request.contextPath}/app/resources/styles/blueprint/screen.css" type="text/css" media="screen, projection" />
 	<link rel="stylesheet" href="${request.contextPath}/app/resources/styles/blueprint/print.css" type="text/css" media="print" />
 	<link rel="stylesheet" href="${request.contextPath}/app/resources/styles/veetouch.css" type="text/css" media="screen" />
 	
-	<script type="text/javascript" src="${request.contextPath}/app/resources/js/air_effects.js" />
-	<script type="text/javascript" src="${request.contextPath}/app/resources/js/mootools-core-1.12.js" />
-	
-	<script type="text/javascript" src="${request.contextPath}/app/resources/js/jquery.spasticNav.js" />
-	<link rel="stylesheet" href="${request.contextPath}/app/resources/styles/jquery.spasticNav.css" type="text/css" media="screen" />
-	
+	<link rel="stylesheet" href="${request.contextPath}/app/resources/styles/menus.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="${request.contextPath}/app/resources/js/mootools/mootools1_12.js" />
+	<script type="text/javascript" src="${request.contextPath}/app/resources/js/mootools/warp.js" />
 	<!--[if lt IE 8]>
 		<link rel="stylesheet" href="${request.servletPath}/styles/blueprint/ie.css" type="text/css" media="screen, projection" />
 	<![endif]-->
 	<ui:insert name="headIncludes"/>
 	
+	<script type="text/javascript">
+		Warp.Settings = {"color":"lilac","itemColor":null};
+	</script>
 </h:head>
 <h:body>
 <div id="page-header">
 	<div class="page-header-img">
 		<div id="headerbar">
-			
+			<div class="wrapper">
+				<div id="header">
+					<!-- Menu bar -->
+					<div id="logo">
+						<a class="logo-icon correct-png" title="Home" href="home"></a>
+					</div>
+					<div id="menu">
+						<ul class="menu menu-dropdown">
+							<li class="level1 item1 first active current">
+								<a class="level1 item1" href="home">
+									<span class="bg">Home</span>
+								</a>
+							</li>
+							<li class="level1 item2">
+								<a class="level1 item2" href="about">
+									<span class="bg">About</span>
+								</a>
+							</li>
+							<li class="level1 item3">
+								<a class="level1 item3" href="product">
+									<span class="bg">Product</span>
+								</a>
+							</li>
+							<li class="level1 item4">
+								<a class="level1 item4" href="solution">
+									<span class="bg">Solution</span>
+								</a>
+							</li>
+							<li class="level1 item5">
+								<a class="level1 item5" href="contact">
+									<span class="bg">Contact</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					
+				</div>
+				<div id="headermodules">
+					
+				</div>
+			</div>
 		</div>
-		<div id="headermodules">
-			
-		</div>
+		
 	</div>
 </div>
-
-
-
-
-
-
 <div class="container">
-	<div class="header" style="padding-top: 18px;padding-bottom: 18px;padding-left: 18px;padding-right: 18px;">
-		<div class="content">
-			<ui:insert name="header"/>
-		</div>
-	</div>
-	<div style="padding-top: 50px;">
-		<div class="content">
-			<ui:insert name="title"/>
-		</div>
-	</div>
-	<div>
-		<div class="content">
-			<ui:insert name="content"/>
-		</div>	
+	<div class="content" style="padding-top: 18px;">
+		<ui:insert name="content"/>
 	</div>
 </div>
-
 <div id="page-footer">
 	<div id="footer">
 		<ul class="footer-menu">
@@ -90,7 +102,6 @@
 		Copyright &copy; 2011 VT. All rights reserved 
 	</div> <!-- end footer -->
 </div>
-
 
 </h:body>
 </f:view>
