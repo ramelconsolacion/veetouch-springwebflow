@@ -20,6 +20,27 @@ body {
     margin: auto;
 }
 
+#logo {
+    left: -30px;
+    position: absolute;
+    text-align: center;
+    top: 28px;
+}
+
+a.logo-icon {
+	background-image: url("../images/templates/logo/header.png");
+	background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    display: block;
+    height: 130px;
+    width: 200px;	
+}
+
 /*-------------------------------------------
 Header 
 
@@ -34,11 +55,26 @@ Header
 	min-height: 180px;
 }
 
+#header {
+    clear: both;
+    height: 140px;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0;
+    position: relative;
+    z-index: 10;
+}
+
 #headerbar {
 	background: url("../images/templates/header/headerbar_bg.png") repeat-x scroll 50% 100% transparent;
-	min-height: 145px;
 	background-image: url("../images/templates/header/headerbar_glass.png");
-	
+	max-height: 145px;
+	min-height: 145px;
 }
 
 #headermodules {
@@ -173,3 +209,17 @@ Footer
 	overflow: hidden;
     padding: 0 15px 0 14px;
 }
+
+
+/*-------------------------------------------
+ETC
+
+-------------------------------------------*/
+.wrapper {
+	width: 950px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+}
+

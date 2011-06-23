@@ -5,28 +5,6 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.prime.com.tr/ui"
 	template="/WEB-INF/layouts/standard.xhtml">
-	
-	<ui:define name="header">
-		<div id="topmenu">
-			<ul id="nav">
-				<li id="selected"><a href="home">Home</a></li>
-				<li><a href="about">About</a></li>
-				<li><a href="product">Product</a></li>
-				<li><a href="solution">Solution</a></li>
-				<li><a href="contact">Contact</a></li>
-			</ul>
-		</div>
-		<script>
-			jQuery(document).ready(function() {
-				jQuery('#nav').spasticNav();
-			});
-		</script>
-	</ui:define>
-	
-	<ui:define name="title">
-
-	</ui:define>
-	
 	<ui:define name="content">
 		<p:layout style="width:950px;height:200px;">
 			<p:layoutUnit position="left" width="475">
@@ -35,6 +13,9 @@
 					<h:outputText styleClass="news-panel-text" value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.   
 					                His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. T  
 					                hrough Michael's life the nature of the family business becomes clear." />
+					<p:button value="Continue Reading">  
+						
+					</p:button>
 				</p:panel>
 			</p:layoutUnit>
 			<p:layoutUnit position="center" width="475">
@@ -43,6 +24,9 @@
 					<h:outputText styleClass="news-panel-text" value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.   
 					                His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. T  
 					                hrough Michael's life the nature of the family business becomes clear." />
+					<p:button value="Continue Reading">  
+						
+					</p:button>
 				</p:panel>
 			</p:layoutUnit>
 		</p:layout>
