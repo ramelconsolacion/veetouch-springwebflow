@@ -14,7 +14,6 @@
 			UrlBasedViewResolver in servlet-context resolves 'home' to /WEB-INF/views/home.xhtml 
 	-->
 	<mvc:view-controller path="/login" />
-	<mvc:view-controller path="/home" />
 	
 	<context:component-scan base-package="org.springframework.samples.webflow" />
 	<context:component-scan base-package="org.veetouch.primefaces" />
