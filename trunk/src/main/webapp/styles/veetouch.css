@@ -52,6 +52,7 @@ Header
 
 .page-header-img {
 	background: url("../images/templates/header/glitter_blue.jpg") no-repeat scroll 50% 0 transparent;
+	background-position: 50% 0;
 	min-height: 180px;
 }
 
@@ -73,8 +74,14 @@ Header
 #headerbar {
 	background: url("../images/templates/header/headerbar_bg.png") repeat-x scroll 50% 100% transparent;
 	background-image: url("../images/templates/header/headerbar_glass.png");
-	max-height: 145px;
-	min-height: 145px;
+	background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-origin: padding-box;
+    background-position: 50% 100%;
+    background-repeat: repeat-x;
+    background-size: auto auto;
+    min-height: 145px;
 }
 
 #headermodules {
