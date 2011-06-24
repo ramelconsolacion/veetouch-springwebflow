@@ -4,11 +4,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
 	parent="parent-flow">
-	
-	<!--
-		Also see ../parent-flow.xml. 
-	-->
+
 	<var name="galleriaOverall" class="org.veetouch.primefaces.product.GalleriaOverall" />
+	
+	<on-start>
+		<evaluate expression="menuNavigator.setPage('PRODUCT')"></evaluate>
+	</on-start>
 	
 	<view-state id="overall">
 	
