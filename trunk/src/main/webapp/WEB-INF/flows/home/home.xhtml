@@ -7,19 +7,23 @@
 	template="/WEB-INF/layouts/standard.xhtml">
 	
 	<ui:define name="headermodules">
-		<p:carousel styleClass="center-div" rows="1" itemStyle="width:600px;height:349px;margin: auto;" effect="easeInStrong" autoPlayInterval="2000" circular="true">
+		<p:carousel styleClass="center-div" rows="1" itemStyle="width:700px;height:200px;margin: auto;" effect="easeInStrong" autoPlayInterval="5000" circular="true">
 			<p:tab title="Godfather Part I">  
-		        <h:panelGrid columns="2" cellpadding="10">  
-			    	<p:graphicImage value="/images/godfather/godfather1.jpg" />  
+		        <h:panelGrid columns="2" cellpadding="10"> 
+		        	<p:lightBox>  
+					    <h:outputLink value="#" title="VT Teaser">  
+					        <p:graphicImage value="/images/godfather/godfather1.jpg" /> 
+					    </h:outputLink>
+					    <f:facet name="inline">
+					        <p:media value="http://www.youtube.com/v/JvsUkUaJjYs" width="560" height="349" player="flash"/>   
+					    </f:facet>
+					</p:lightBox>
 			        <h:outputText  
 			                value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.   
 			                His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. T  
 			                hrough Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family, kind and benevolent to those who give respect,   
 			                but given to ruthless violence whenever anything stands against the good of the family." />  
 				</h:panelGrid>
-    		</p:tab>
-			<p:tab title="News Product">  
-		        <p:media value="http://www.youtube.com/v/JvsUkUaJjYs" width="560" height="349" player="flash"/>  
     		</p:tab>
 		</p:carousel>
 	</ui:define>
@@ -37,33 +41,31 @@
 					http://bit.ly/kmYdWj about a day ago from CoTweet" />
 			</p:panel>
 		</div>
-		<p:layout style="width:950px;height:200px;">
-			<p:layoutUnit position="left" width="475">
-				<p:panel styleClass="news-panel-blue">
-					<h:outputText styleClass="news-panel-header" value="News Panel"/>
-					<div class="news-panel-text">
-						<h:outputText value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.   
-					                His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. T  
-					                hrough Michael's life the nature of the family business becomes clear." />
-					</div>
-					<h:form>
-						<p:commandButton value="Continue Reading" action="viewProduct" ajax="false" styleClass="news-panel-link"/>
-					</h:form>
-				</p:panel>
-			</p:layoutUnit>
-			<p:layoutUnit position="center" width="475">
-				<p:panel styleClass="news-panel-blue">
-					<h:outputText styleClass="news-panel-header" value="News Panel"/>
-					<div class="news-panel-text">
-						<h:outputText value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-							hrough Michael's life the nature of the family business becomes clear." />
-					</div>
-					<h:form>
-						<p:commandButton value="Continue Reading" action="viewProduct" ajax="false" styleClass="news-panel-link"/>
-					</h:form>
-				</p:panel>
-			</p:layoutUnit>
-		</p:layout>
-		
+		<div style="float:left;padding-right: 20px;padding-left: 5px;">
+			<p:panel styleClass="news-panel-blue">
+				<h:outputText styleClass="news-panel-header" value="News Panel"/>
+				<div class="news-panel-text">
+					<h:outputText value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.   
+				                His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. T  
+				                hrough Michael's life the nature of the family business becomes clear." />
+				</div>
+				<h:form>
+					<p:commandButton value="Continue Reading" action="viewProduct" ajax="false" styleClass="news-panel-link"/>
+				</h:form>
+			</p:panel>
+		</div>
+		<div>
+			<p:panel styleClass="news-panel-blue">
+				<h:outputText styleClass="news-panel-header" value="News Panel"/>
+				<div class="news-panel-text">
+					<h:outputText value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.   
+				                His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. T  
+				                hrough Michael's life the nature of the family business becomes clear." />
+				</div>
+				<h:form>
+					<p:commandButton value="Continue Reading" action="viewProduct" ajax="false" styleClass="news-panel-link"/>
+				</h:form>
+			</p:panel>
+		</div>
 	</ui:define>
 </ui:composition>
