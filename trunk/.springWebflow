@@ -4,28 +4,24 @@
 	<pluginVersion><![CDATA[2.6.0.201103160035-RELEASE]]></pluginVersion>
 	<configs>
 		<config>
-			<file>src/main/webapp/WEB-INF/flows/modal-dialog-in-view/flow.xml</file>
-			<name><![CDATA[flow]]></name>
+			<file>src/main/webapp/WEB-INF/flows/about/about-flow.xml</file>
+			<name><![CDATA[about-flow]]></name>
 		</config>
 		<config>
-			<file>src/main/webapp/WEB-INF/flows/product/flow.xml</file>
-			<name><![CDATA[flow]]></name>
+			<file>src/main/webapp/WEB-INF/flows/contact/contact-flow.xml</file>
+			<name><![CDATA[contact-flow]]></name>
 		</config>
 		<config>
-			<file>src/main/webapp/WEB-INF/flows/about/flow.xml</file>
-			<name><![CDATA[flow]]></name>
+			<file>src/main/webapp/WEB-INF/flows/home/home-flow.xml</file>
+			<name><![CDATA[home-flow]]></name>
 		</config>
 		<config>
-			<file>src/main/webapp/WEB-INF/flows/contact/flow.xml</file>
-			<name><![CDATA[flow]]></name>
+			<file>src/main/webapp/WEB-INF/flows/product/product-flow.xml</file>
+			<name><![CDATA[product-flow]]></name>
 		</config>
 		<config>
-			<file>src/main/webapp/WEB-INF/flows/solution/flow.xml</file>
-			<name><![CDATA[flow]]></name>
-		</config>
-		<config>
-			<file>src/main/webapp/WEB-INF/flows/home/flow.xml</file>
-			<name><![CDATA[flow]]></name>
+			<file>src/main/webapp/WEB-INF/flows/global/global-flow.xml</file>
+			<name><![CDATA[global-flow]]></name>
 		</config>
 	</configs>
 </webflow-project-description>
