@@ -24,6 +24,11 @@
 	
 	<script type="text/javascript">
 		Warp.Settings = {"color":"lilac","itemColor":null};
+		
+		window.addEvent('domready', function() {
+			var current_page = "Menu-#{menuNavigator.page}"
+			$(current_page).addClass('active');
+		});
 	</script>
 </h:head>
 <h:body>
@@ -38,29 +43,29 @@
 					</div>
 					<div id="menu">
 						<ul class="menu menu-dropdown">
-							<li class="level1 item1 first active current">
+							<li id="Menu-HOME" class="level1 item1">
 								<a class="level1 item1" href="home">
-									<span class="bg">Home</span>
+									<span class="bg">HOME</span>
 								</a>
 							</li>
-							<li class="level1 item2">
+							<li id="Menu-ABOUT" class="level1 item2">
 								<a class="level1 item2" href="about">
-									<span class="bg">About</span>
+									<span class="bg">ABOUT</span>
 								</a>
 							</li>
-							<li class="level1 item3">
+							<li id="Menu-PRODUCT" class="level1 item3">
 								<a class="level1 item3" href="product">
-									<span class="bg">Product</span>
+									<span class="bg">PRODUCT</span>
 								</a>
 							</li>
-							<li class="level1 item4">
+							<li id="Menu-SOLUTION" class="level1 item4">
 								<a class="level1 item4" href="solution">
-									<span class="bg">Solution</span>
+									<span class="bg">SOLUTION</span>
 								</a>
 							</li>
-							<li class="level1 item5">
+							<li id="Menu-CONTACT" class="level1 item5">
 								<a class="level1 item5" href="contact">
-									<span class="bg">Contact</span>
+									<span class="bg">CONTACT</span>
 								</a>
 							</li>
 						</ul>
@@ -102,7 +107,6 @@
 		Copyright &copy; 2011 VT. All rights reserved 
 	</div> <!-- end footer -->
 </div>
-
 </h:body>
 </f:view>
 </html>
