@@ -6,13 +6,9 @@
 	parent="parent-flow">
 
 	<view-state id="home">
-		<!-- 
 		<transition on="viewProduct" to="viewProduct"></transition>
-		 -->
 	</view-state>
-	<!-- 
 	<subflow-state id="viewProduct" subflow="product">
 	</subflow-state>
-	-->
 	
 </flow>

@@ -85,13 +85,9 @@ Header
 }
 
 #headermodules {
-	padding: 25px 0 30px;
+	padding: 15px;
 	color: #FFFFFF;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
-}
-
-.box-header {
-	
 }
 
 
@@ -106,26 +102,11 @@ Panel
 .ui-layout-bd {
 	border: 0px solid #A8A8A8;
 }
+
+
 .ui-panel {
-	background: none repeat scroll 0 0 #f4f4f4;
 	border-radius: 8px 8px 4px 4px;
 	padding: 0em;
-}
-.ui-panel-titlebar {
-	border: 0 solid #606060;
-	border-radius: 8px 8px 0 0;
-}
-.ui-panel-title {
-	color: #FFFFFF;
-	font-size: 18px;
-}
-.ui-widget-header {
-	background: #606060 linear-gradient(top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
-	background: #606060 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.4)), to(rgba(255, 255, 255, 0)));
-	background: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0)) repeat scroll 0 0 #606060;
-}
-.ui-widget-content {
-	background-color: #EEEFF0;
 }
 
 /*-- News 
