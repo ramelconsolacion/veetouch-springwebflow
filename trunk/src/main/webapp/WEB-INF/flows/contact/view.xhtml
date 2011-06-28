@@ -11,27 +11,67 @@
 	  			xmlns:p="http://primefaces.prime.com.tr/ui"
 				template="/WEB-INF/layouts/standard.xhtml">
 	
-	<ui:define name="header">
-		<div id="topmenu">
-			<ul id="nav">
-				<li><a href="home">Home</a></li>
-				<li><a href="about">About</a></li>
-				<li><a href="product">Product</a></li>
-				<li><a href="solution">Solution</a></li>
-				<li id="selected"><a href="contact">Contact</a></li>
-			</ul>
-		</div>
-		<script>
-			jQuery(document).ready(function() {
-				jQuery('#nav').spasticNav();
-			});
-		</script>
-	</ui:define>
-	
-	<ui:define name="title">Contact Us</ui:define>
-		
 	<ui:define name="content">
-		
+        <p:panel style="width:100%;" styleClass="news-panel-content">
+            <f:facet name="header" styleClass="news-panel-header" headerClass="news-panel-header">
+                <h:outputText value="Corporate Info" />
+            </f:facet>
+            <h:panelGrid columns="3" cellpadding="10" id="contactinfo">
+                <h:panelGroup layout="block" style="display:table-cell;">
+                    <h:outputText value="Absolute Management Solutions Co., Ltd." />
+                    <br />
+                    <br />
+                    <h:outputText value="3/1 หมู่ 9 ถ.ราชพฤกษ์" />
+                    <br />
+                    <h:outputText value="แขวงบางเชือกหนัง เขตตลิ่งชัน" />
+                    <br />
+                    <h:outputText value="กทม. 10170" />
+                    <br />
+                    <br />
+                    <h:outputText value="3/1 moo 9 Ratchpruek Rd." />
+                    <br />
+                    <h:outputText value="Bangchuaknang, Talingchan" />
+                    <br />
+                    <h:outputText value="BKK Thailand 10170" />
+                    <br />
+                    <br />
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="background: none; padding: 0px;">
+                        <tbody>
+                            <tr><td style="width: 50px;">Tel</td><td>: (+66)2404-0144</td></tr>
+                            <tr><td>Fax</td><td>: (+66)2404-0144 ต่อ 18</td></tr>
+                            <tr><td>E-mail&nbsp;</td><td>: <a href="mailto:atthaboon.s@gmail.com">atthaboon.s@gmail.com</a></td></tr>
+                        </tbody>
+                    </table>
+                </h:panelGroup>
+                <h:panelGroup layout="block" style="display:table-cell;width:1px;">
+                    <p:separator style="width:1px;height:250px;" />
+                </h:panelGroup>
+                <h:panelGroup layout="block" style="display: block;text-align: center;">
+                    <p:graphicImage value="/images/map/map.png" />
+                </h:panelGroup>
+            </h:panelGrid>
+            <h:outputLink id="lnk" value="#" style="display: block;text-align: left;padding-left:10px;padding-bottom:1.4em;">
+                <p:printer target="contactinfo" />
+                <p:graphicImage value="/images/templates/etc/print.png" />
+            </h:outputLink>
+            <p:fieldset legend="ติดต่อเจ้าหน้าที่โดยตรง">
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="background: none; padding: 0px;">
+                        <tbody>
+                            <tr><th style="padding:0px;width: 50px;" colspan="2">สอบถามสินค้าและบริการ</th></tr>
+                            <tr><td style="padding:0px;width: 50px;">Tel</td><td style="padding:0px;">: (+66)2404-0144</td></tr>
+                            <tr><td style="padding:0px;">E-mail&nbsp;</td><td style="padding:0px;">: <a href="mailto:atthaboon.s@gmail.com">atthaboon.s@gmail.com</a></td></tr>
+                            <tr><td></td></tr>
+                            <tr><th style="padding:0px;width: 50px;" colspan="2">สอบถาม/แจ้งปัญหาการใช้งาน</th></tr>
+                            <tr><td style="padding:0px;width: 50px;">Tel</td><td style="padding:0px;">: (+66)2404-0144</td></tr>
+                            <tr><td style="padding:0px;">E-mail&nbsp;</td><td style="padding:0px;">: <a href="mailto:atthaboon.s@gmail.com">atthaboon.s@gmail.com</a></td></tr>
+                            <tr><td></td></tr>
+                            <tr><th style="padding:0px;width: 50px;" colspan="2">ชำระค่าสินค้า/บริการ</th></tr>
+                            <tr><td style="padding:0px;width: 50px;">Tel</td><td style="padding:0px;">: (+66)2404-0144</td></tr>
+                            <tr><td style="padding:0px;">E-mail&nbsp;</td><td style="padding:0px;">: <a href="mailto:atthaboon.s@gmail.com">atthaboon.s@gmail.com</a></td></tr>
+                        </tbody>
+                    </table>
+                </p:fieldset>
+            
+        </p:panel>
 	</ui:define>
-
 </ui:composition>
