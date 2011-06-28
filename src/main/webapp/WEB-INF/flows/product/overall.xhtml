@@ -1,4 +1,4 @@
-<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- 
 	Functional
 	Use for display
@@ -25,24 +25,52 @@
 			<h:panelGroup layout="block" style="vertical-align: top;float:left;padding-right: 10px;">
 				<p:menu>
 					<p:submenu label="Point Of Sale">
-						<p:menuitem value="Shop vServer" url="#" />
-						<p:menuitem value="Shop vsPlugin" url="#" />
+						<p:menuitem value="Shop vServer" url="#" icon="ui-icon ui-icon-home"/>
+						<p:menuitem value="Shop vsPlugin" url="#" icon="ui-icon ui-icon-home"/>
 					</p:submenu>
 					<p:submenu label="vTable">
-						<p:menuitem value="Shop vOS" url="#" />
-						<p:menuitem value="Shop vPlugin" url="#" />
+						<p:menuitem value="Shop vOS" url="#" icon="ui-icon ui-icon-home"/>
+						<p:menuitem value="Shop vPlugin" url="#" icon="ui-icon ui-icon-home"/>
 					</p:submenu>
 				</p:menu>
 			</h:panelGroup>
+            
 			<h:panelGroup layout="block" style="display:table-cell;">
-				<p:fieldset legend="Hot Products">  
-					<h:outputText value="Twitter FeedTwitter Feed
-						Amplify e-health benefits with an opt-out enrollment model. Learn more. #HumanServices
-						http://bit.ly/lUlTE4 about a day ago from CoTweet
-						Militaries focus on cost of outsourced operations.Contractors must bid and run services right. #PAS
-						http://bit.ly/kmYdWj about a day ago from CoTweet" />
-				</p:fieldset>
-				<h:panelGroup layout="block" style="padding-bottom: 10px;" />
+				<h:form prependId="false">  
+                <p:fieldset legend="Hot Products" toggleable="true" toggleSpeed="500">  
+                    <h:panelGrid columns="4" cellpadding="10" styleClass="product-table">  
+                        <h:panelGrid columns="1">
+                            <p:commandLink>
+                                <p:graphicImage value="/images/temp/ipad2.jpg" />
+                                <br />
+                                <h:outputText value="Ipad 2"/>
+                            </p:commandLink>
+                        </h:panelGrid>
+                        <h:panelGrid columns="1">
+                            <p:commandLink>
+                                <p:graphicImage value="/images/temp/ipodtouch.jpg" />
+                                <br />
+                                <h:outputText value="Ipod touch"/>
+                            </p:commandLink>
+                        </h:panelGrid>
+                        <h:panelGrid columns="1">
+                            <p:commandLink>
+                                <p:graphicImage value="/images/temp/imac.jpg" />
+                                <br />
+                                <h:outputText value="iMac"/>
+                            </p:commandLink>
+                        </h:panelGrid>
+                        <h:panelGrid columns="1">
+                            <p:commandLink>
+                                <p:graphicImage value="/images/temp/macbookair.jpg" />
+                                <br />
+                                <h:outputText value="Macbook Air"/>
+                            </p:commandLink>
+                        </h:panelGrid>
+                    </h:panelGrid>
+                </p:fieldset>
+                </h:form>
+                
 				<p:tabView effect="opacity" effectDuration="normal">
 				    <p:tab title="Why VT">
 				        <ul id="j_idt44_list" class="ui-datalist-data ui-corner-all" type="disc">

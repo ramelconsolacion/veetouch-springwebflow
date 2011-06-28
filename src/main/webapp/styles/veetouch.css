@@ -246,6 +246,8 @@ Footer
     padding: 0 15px 0 14px;
 }
 
+a.footer-menu-item:focus, a.footer-menu-item:hover {color:#000000;}
+
 
 /*-------------------------------------------
 ETC
@@ -257,4 +259,10 @@ ETC
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
+}
+
+.product-table  td {
+    text-align: center;
+    list-style: none outside none;
+    vertical-align: bottom;
 }
