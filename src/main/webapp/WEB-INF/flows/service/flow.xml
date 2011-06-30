@@ -6,7 +6,7 @@
 	parent="parent-flow">
 	
 	<on-start>
-		<evaluate expression="menuNavigator.setPage('SOLUTION')"></evaluate>
+		<evaluate expression="menuNavigator.setPage('SERVICE')"></evaluate>
 	</on-start>
 	
 	<view-state id="view">
