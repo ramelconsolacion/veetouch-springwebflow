@@ -12,7 +12,68 @@
 				template="/WEB-INF/layouts/standard.xhtml">
 
 	<ui:define name="content">
-		
+        <p:breadCrumb id="breadcrumb">
+			<p:menuitem value="Home" url="service" />
+			<p:menuitem value="Service" url="service" />
+		</p:breadCrumb>
+        <p:separator style="width:0px;height:0px;visibility:hidden;" /> 
+		<p:panel>
+            <h:outputText value="Service Information" styleClass="information-header" />
+            <h:outputText value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.   
+                        His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. T  
+                        hrough Michael's life the nature of the family business becomes clear. อธิบายว่า service ของเราคืออะไร โดยรวมใครควรใช้บ้าง" />
+            <h:form prependId="false" style="padding-top:15px;">
+                <table width="100%" cellspacing="0" cellpadding="0" border="0" style="background: none; padding: 0px;">
+                    <tbody>
+                        <tr>
+                            <td style="width: 200px;text-align:center;">
+                                <p:commandLink>
+                                    <p:graphicImage value="/images/temp/ipad2.jpg" />
+                                </p:commandLink>
+                            </td>
+                            <td style="vertical-align: top;">
+                                <h:outputText styleClass="sub-information-header" value="Poll"/>
+                                <h:outputText value="The story begins as Don Vito Corleone" />
+                                <p:spacer width="5" height="0" />
+                                <p:commandLink styleClass="information-link">
+                                    <h:outputText value="more..." />
+                                </p:commandLink>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 200px;text-align:center;">
+                                <p:commandLink>
+                                    <p:graphicImage value="/images/temp/ipodtouch.jpg" />
+                                </p:commandLink>
+                            </td>
+                            <td style="vertical-align: top;">
+                                <h:outputText styleClass="sub-information-header" value="Megazine"/>
+                                <h:outputText value="The story begins as Don Vito Corleone" />
+                                <p:spacer width="5" height="0" />
+                                <p:commandLink styleClass="information-link">
+                                    <h:outputText value="more..." />
+                                </p:commandLink>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 200px;text-align:center;">
+                                <p:commandLink>
+                                    <p:graphicImage value="/images/temp/ipodtouch.jpg" />
+                                </p:commandLink>
+                            </td>
+                            <td style="vertical-align: top;">
+                                <h:outputText styleClass="sub-information-header" value="Deal"/>
+                                <h:outputText value="The story begins as Don Vito Corleone" />
+                                <p:spacer width="5" height="0" />
+                                <p:commandLink styleClass="information-link">
+                                    <h:outputText value="more..." />
+                                </p:commandLink>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </h:form>
+        </p:panel>
 	</ui:define>
 
 </ui:composition>
