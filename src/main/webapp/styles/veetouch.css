@@ -108,7 +108,6 @@ li .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-
     background: #FFFFFF;
     border: 1px solid #3990BD;
     color: #3990BD;
-    font-weight: bold;
 }
 
 li.ui-tabs-selected a, li.ui-tabs-selected a:link, li.ui-tabs-selected a:visited {
