@@ -1,6 +1,7 @@
 /*-------------------------------------------
 Default
-
+    Blue color is 3990BD
+    Green color is 6EAC2C
 -------------------------------------------*/
 body {
 	background-color: #EEEFF0;
@@ -191,6 +192,30 @@ Panel
 	background: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)) repeat scroll 0 0 #f4f4f4;
 	border-radius: 8px 8px 8px 8px;
 	padding: 0em;
+}
+
+.information-header {
+	font-weight: normal;
+	color: #3990BD;
+	font-size: 1.8em;
+	display:block;
+    padding-bottom: 10px;
+}
+
+.sub-information-header {
+	font-weight: normal;
+	color: #3990BD;
+	font-size: 1.4em;
+	display:block;
+    padding-bottom: 5px;
+}
+
+a.information-link {
+    color: #6EAC2C;
+}
+
+a.information-link:hover, a.information-link:focus {
+    color: #3990BD;
 }
 
 /*-- Notified Information
