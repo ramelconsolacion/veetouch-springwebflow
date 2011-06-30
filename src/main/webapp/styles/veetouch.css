@@ -103,13 +103,14 @@ p:menu
 p:tabView
 
 -------------------------------------------*/
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
-    background: url("") repeat-x scroll 50% 50% #FFFFFF;
+li .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active  {
+    background: #FFFFFF;
     border: 1px solid #3990BD;
     color: #3990BD;
     font-weight: bold;
 }
-.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+
+li.ui-tabs-selected a, li.ui-tabs-selected a:link, li.ui-tabs-selected a:visited {
     color: #3990BD;
     text-decoration: none;
 }
