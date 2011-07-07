@@ -4,6 +4,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 	
-	<var name="menuNavigator" class="org.veetouch.components.menu.MenuNavigator" />
+	<var name="menuNavigator" class="org.veetouch.view.components.menu.MenuNavigator" />
 
 </flow>

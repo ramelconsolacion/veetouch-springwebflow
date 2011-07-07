@@ -7,8 +7,8 @@
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
-		<config>src/main/webapp/WEB-INF/spring/appServlet/webflow.xml</config>
-		<config>src/main/webapp/WEB-INF/spring/security-config.xml</config>
+		<config>src/main/webapp/WEB-INF/config/webflow-config.xml</config>
+		<config>src/main/webapp/WEB-INF/config/webmvc-config.xml</config>
 	</configs>
 	<configSets>
 	</configSets>
