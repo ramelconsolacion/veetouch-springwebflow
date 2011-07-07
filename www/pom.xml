@@ -10,9 +10,10 @@
 
 	<properties>
 		<java-version>1.6</java-version>
-		<springframework-version>3.0.5.RELEASE</springframework-version>
-		<springwebflow-version>2.3.0.RELEASE</springwebflow-version>
-		<springsecurity-version>3.0.5.RELEASE</springsecurity-version>
+        <springwebflow-version>2.3.0.RELEASE</springwebflow-version>
+		<org.springframework-version>3.0.5.RELEASE</org.springframework-version>
+        <org.springsecurity-version>3.0.2.RELEASE</org.springsecurity-version>
+		<jsf-version>2.0.3</jsf-version>
 		<org.slf4j-version>1.5.10</org.slf4j-version>
 		<primefaces-version>3.0.M1</primefaces-version>
 		<primefaces-theme>start</primefaces-theme>
@@ -21,16 +22,32 @@
 
 	<dependencies>
 		<!-- Spring -->
-		<dependency>
+        <dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${springframework-version}</version>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
 			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
 				 </exclusion>
 			</exclusions>
+		</dependency>
+        <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>				
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
@@ -39,20 +56,69 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
-			<version>${springsecurity-version}</version>
+			<artifactId>spring-security-web</artifactId>
+			<version>${org.springsecurity-version}</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				 </exclusion>
+			</exclusions>						
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
-			<version>${springsecurity-version}</version>
+			<version>${org.springsecurity-version}</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				 </exclusion>
+			</exclusions>						
+        </dependency>	
+		<!-- Database, JPA -->
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>1.8.0.10</version>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>${springsecurity-version}</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.5.0-Final</version>
 		</dependency>
-		<!-- Logging -->
+        <dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>${mysql-connector-java-verion}</version>
+		</dependency>
+        <!-- JSF: Mojarra, PrimeFaces -->
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>${jsf-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>${jsf-version}</version>
+		</dependency>
+                <!-- PrimeFaces component library -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>${primefaces-version}</version>
+		</dependency>
+                <!-- PrimeFaces theme -->
+		<dependency> 
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>${primefaces-theme}</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+        <!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -62,7 +128,6 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>${org.slf4j-version}</version>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -70,86 +135,63 @@
 			<version>${org.slf4j-version}</version>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency>
+        <dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.16</version>
+			<version>1.2.15</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
-		<!-- JSF-303 Dependency Injection -->
-		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-			<version>1</version>
-		</dependency>
-		<!-- Servlet -->
+        <!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>jsp-api</artifactId>
-			<version>2.1</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-		<!-- Sun Mojarra JSF 2 runtime -->
-		<dependency>
-			<groupId>com.sun.faces</groupId>
-			<artifactId>jsf-api</artifactId>
-			<version>2.0.3</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.faces</groupId>
-			<artifactId>jsf-impl</artifactId>
-			<version>2.0.3</version>
-		</dependency>
-		<!-- PrimeFaces component library -->
-		<dependency>
-			<groupId>org.primefaces</groupId>
-			<artifactId>primefaces</artifactId>
-			<version>${primefaces-version}</version>
-		</dependency>
-		<!-- PrimeFaces theme -->
-		<dependency> 
-			<groupId>org.primefaces.themes</groupId>
-			<artifactId>${primefaces-theme}</artifactId>
-			<version>1.0.1</version>
-		</dependency>
-		<!-- JSR 303 validation -->
-		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>1.0.0.GA</version>
-		</dependency>
+		<!-- JSR 303 with Hibernate Validator -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>4.0.2.GA</version>
 		</dependency>
-		<!-- Test -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.7</version>
-			<scope>test</scope>
-		</dependency>
-		<!-- Database -->
-		<dependency>
-		    <groupId>mysql</groupId>
-		    <artifactId>mysql-connector-java</artifactId>
-		    <version>${mysql-connector-java-verion}</version>
-		</dependency>
+		<!--
+			JAXB is needed when running on Java 5. In this environment these dependencies have to be added 
+			(unless xml	configuration is explicitly disabled via Configuration.ignoreXmlConfiguration) 
+			On Java 6 jaxb is part of the runtime environment.
+		-->
+        <dependency>
+          <groupId>javax.xml.bind</groupId>
+          <artifactId>jaxb-api</artifactId>
+          <version>2.1</version>
+        </dependency>
 	</dependencies>
 
 	<repositories>	
+		<!-- Maven Central -->
+		<repository>
+			<id>org.maven.central</id>
+			<name>Maven Central Repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<snapshots><enabled>false</enabled></snapshots>
+		</repository>
 		<!-- For testing against latest Spring snapshots -->
 		<repository>
 			<id>org.springframework.maven.snapshot</id>
@@ -159,31 +201,18 @@
 			<snapshots><enabled>true</enabled></snapshots>
 		</repository>
 		<!-- For developing against latest Spring milestones -->
-		<repository>
+        <repository>
 			<id>org.springframework.maven.milestone</id>
 			<name>Spring Maven Milestone Repository</name>
 			<url>http://maven.springframework.org/milestone</url>
 			<snapshots><enabled>false</enabled></snapshots>
-		</repository>
-		<!-- For Hibernate Validator -->
+		</repository>		
+		<!-- For Mojarra 2.x -->
 		<repository>
-			<id>org.jboss.repository.releases</id>
-			<name>JBoss Maven Release Repository</name>			
-			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>
-			<snapshots><enabled>false</enabled></snapshots>			
+			<id>java.net.release</id>
+			<name>Repository for Projects On Hosted on java.net</name>
+			<url>http://download.java.net/maven/2</url>
 		</repository>	
-		<repository>
-            <id>JBOSS</id>
-            <name>JBoss Repository</name>
-            <url>http://repository.jboss.org/maven2/</url>
-        </repository>	
-		<!-- For Sun Mojarra JSF 2 implementation -->
-		<repository>
-			<id>maven2-repository.dev.java.net</id>
-			<name>Java.net Repository for Maven</name>
-			<url>http://download.java.net/maven/2/</url>
-			<snapshots><enabled>false</enabled></snapshots>			
-		</repository>
 		<!-- For PrimeFaces JSF component library -->
 		<repository>
 			<id>prime-repo</id>
