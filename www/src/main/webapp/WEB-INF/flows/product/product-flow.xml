@@ -5,15 +5,13 @@
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
 	parent="parent-flow">
 
-	<var name="galleriaOverall" class="org.veetouch.primefaces.product.GalleriaOverall" />
-	
 	<on-start>
 		<evaluate expression="menuNavigator.setPage('PRODUCT')"></evaluate>
 	</on-start>
 	
 	<view-state id="overall">
 		<on-entry>
-			<evaluate expression="productService.listAllProduct()" result="viewScope.products" result-type="dataModel"></evaluate>
+			<evaluate expression="vt_productService.listAllProduct()" result="viewScope.products" result-type="dataModel"></evaluate>
 		</on-entry>
 	</view-state>
 

@@ -8,9 +8,9 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.veetouch.model.Product;
+import org.veetouch.model.VtProduct;
 
-@Service("productService")
+@Service("vt_productService")
 @Repository
 public class JpaProductService implements ProductService
 {
@@ -23,9 +23,8 @@ public class JpaProductService implements ProductService
 
 	@SuppressWarnings("unchecked")
 	@Transactional(readOnly = true)
-	public List<Product> listAllProduct() {
-		List<Product> productList = em.createQuery("from Product").getResultList();
+	public List<VtProduct> listAllProduct() {
+		List<VtProduct> productList = em.createQuery("from VtProduct").getResultList();
 		return productList;
 	}
-
 }
