@@ -1,0 +1,30 @@
+<html>
+
+<head>
+<title></title>
+<script type="text/javascript">
+    function changeTitle()
+    {
+        // Set title bar follow iframe
+        if (top.frames['main'].document.title)
+        {
+            top.document.title = top.frames['main'].document.title;
+        }
+    }
+</script>
+</head>
+
+<frameset>
+<frame name="main" src="http://veetouch.com:8080/veetouch" scrolling="auto" target="main" ONLOAD="changeTitle();">
+
+<noframes>
+    <body>
+        <script language=”javascript” type="text/javascript">
+            window.location.href = "http://veetouch.com:8080/veetouch";
+        </script>
+    </body>
+</noframes>
+
+</frameset>
+
+</html>
