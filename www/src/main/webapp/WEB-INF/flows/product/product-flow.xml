@@ -5,8 +5,6 @@
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
 	parent="parent-flow">
 	
-	<var name="galleriaBean" class="org.veetouch.primefaces.product.GalleriaOverall"/>
-	
 	<on-start>
 		<evaluate expression="menuNavigator.setPage('PRODUCT')"></evaluate>
 	</on-start>
