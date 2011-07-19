@@ -1,26 +1,17 @@
 <html>
 
 <head>
-<title></title>
-<script type="text/javascript">
-    function changeTitle()
-    {
-        // Set title bar follow iframe
-        if (top.frames['main'].document.title)
-        {
-            top.document.title = top.frames['main'].document.title;
-        }
-    }
-</script>
+<title>VeeTouch</title>
 </head>
 
 <frameset>
-<frame name="main" src="http://veetouch.com:8080/veetouch" scrolling="auto" target="main" ONLOAD="changeTitle();">
+<frame name="main" src="http://www.veetouch.com:8080/veetouch" scrolling="auto" target="main" >
 
 <noframes>
     <body>
+		<P>Here is the <A href="http://www.veetouch.com:8080/veetouch"> non-frame based version of the document.</A> 
         <script language=”javascript” type="text/javascript">
-            window.location.href = "http://veetouch.com:8080/veetouch";
+            window.location.href = "http://www.veetouch.com:8080/veetouch";
         </script>
     </body>
 </noframes>
