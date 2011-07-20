@@ -239,6 +239,11 @@ Table Content
 	vertical-align:middle;
 }
 
+.row-imageSwitch {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
 /*-------------------------------------------
 Footer
 
@@ -283,7 +288,6 @@ Footer
 }
 
 a.footer-menu-item:focus, a.footer-menu-item:hover {color:#000000;}
-
 
 /*-------------------------------------------
 ETC

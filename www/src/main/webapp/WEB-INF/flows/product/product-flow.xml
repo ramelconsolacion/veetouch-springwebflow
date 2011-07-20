@@ -11,14 +11,19 @@
 		<evaluate expression="menuNavigator.setPage('PRODUCT')"></evaluate>
 	</on-start>
 	
-	<view-state id="product">
-		
-	</view-state>
-	
 	<view-state id="overall">
 		<on-entry>
 			<evaluate expression="vt_productService.listAllProduct()" result="viewScope.products" result-type="dataModel"></evaluate>
 		</on-entry>
+		<transition on="viewSubProduct" to="sub-product"></transition>
+	</view-state>
+	
+	<view-state id="sub-product">
+		
+	</view-state>
+	
+	<view-state id="product">
+		
 	</view-state>
 	
 </flow>
