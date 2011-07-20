@@ -37,7 +37,7 @@
 			<h:panelGroup layout="block" style="display:table-cell;width:777px;">
 				<p:panel style="width:100%;" styleClass="news-panel-content">
 					<h:outputText value="Product Name" styleClass="information-header" />
-					<h:panelGrid columns="2" cellpadding="10" columnClasses="row-image,row-content"> 
+					<h:panelGrid columns="2" cellpadding="10" columnClasses="row-image,row-content" style="padding-bottom:20px;"> 
 						<p:lightBox>  
 					    	<p:graphicImage value="/images/godfather/godfather1.jpg" /> 
 						</p:lightBox>
@@ -47,21 +47,23 @@
 			                hrough Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family, kind and benevolent to those who give respect,   
 			                but given to ruthless violence whenever anything stands against the good of the family." />  
 					</h:panelGrid>
+					
 					<!-- primeface not using jquery conflict for this component wait for fix
 					<p:galleria value="#{galleriaBean.images}" var="image">  
 					    <p:graphicImage value="/images/galleria/#{image}" />  
 					</p:galleria>
 					 -->
-					 <h:panelGrid columns="3" cellpadding="10" columnClasses="row-image,row-image,row-image"> 
-						 <p:commandButton type="button" onclick="switcher.previous();" image="ui-icon ui-icon-circle-triangle-w"/>  
+					 <h:panelGrid columns="1" cellpadding="0" columnClasses="row-imageSwitch" style="padding-bottom:10px;"> 
+						 <h:panelGroup layout="block">
+						 	<p:commandButton type="button" onclick="switcher.previous();" image="ui-icon ui-icon-circle-triangle-w"/>  
+						 	<p:commandButton type="button" onclick="switcher.next();" image="ui-icon ui-icon-circle-triangle-e"/>  
+						 </h:panelGroup>
 						 <p:imageSwitch effect="fade" widgetVar="switcher" slideshowAuto="false">  
 						    <ui:repeat value="#{galleriaBean.images}" var="image">  
 						        <p:graphicImage value="/images/galleria/#{image}" />  
 						    </ui:repeat>
-						 </p:imageSwitch> 
-						 <p:commandButton type="button" onclick="switcher.next();" image="ui-icon ui-icon-circle-triangle-e"/>  
+						 </p:imageSwitch>
 					 </h:panelGrid>
-					 
 				</p:panel>
 			</h:panelGroup>
 		</h:panelGroup>

@@ -23,18 +23,20 @@
 		</p:breadCrumb>
 		<h:panelGroup layout="block" style="padding-top: 10px;overflow:hidden;">
 			<h:panelGroup layout="block" style="vertical-align: top;float:left;padding-right: 10px;">
-				<p:menu>
-					<p:submenu label="Point Of Sale">
-						<p:menuitem value="Shop vServer" url="#" icon="ui-icon ui-icon-home"/>
-						<p:menuitem value="Shop vsPlugin" url="#" icon="ui-icon ui-icon-home"/>
-					</p:submenu>
-					<p:submenu label="vTable">
-						<p:menuitem value="Shop vOS" url="#" icon="ui-icon ui-icon-home"/>
-						<p:menuitem value="Shop vPlugin" url="#" icon="ui-icon ui-icon-home"/>
-					</p:submenu>
-				</p:menu>
+				<h:form>				
+					<p:menu>
+						<p:submenu label="Point Of Sale">
+							<p:menuitem>
+								<h:commandLink  value="Shop vsPlugin" action="viewSubProduct" />
+						    </p:menuitem>
+						</p:submenu>
+						<p:submenu label="vTable">
+							<p:menuitem value="Shop vOS" url="#" icon="ui-icon ui-icon-home"/>
+							<p:menuitem value="Shop vPlugin" url="#" icon="ui-icon ui-icon-home"/>
+						</p:submenu>
+					</p:menu>
+				</h:form>
 			</h:panelGroup>
-            
 			<h:panelGroup layout="block" style="display:table-cell;">
 				<h:form prependId="false">  
                 <p:fieldset legend="Hot Products" toggleable="true" toggleSpeed="500">  
