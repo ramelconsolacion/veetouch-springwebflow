@@ -9,7 +9,7 @@
 		<evaluate expression="menuNavigator.setPage('SERVICE')"></evaluate>
 	</on-start>
 	
-	<view-state id="view">
+	<view-state id="service-list">
 	</view-state>
 
 </flow>
