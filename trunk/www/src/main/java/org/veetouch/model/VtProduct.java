@@ -1,52 +1,63 @@
 package org.veetouch.model;
 
 import java.io.Serializable;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
+/**
+ * The persistent class for the vt_product database table.
+ * 
+ */
 @Entity
-@Table(name = "vt_product")
-public class VtProduct implements Serializable
-{
-	private static final long serialVersionUID = 3200725800943324563L;
+@Table(name="vt_product")
+public class VtProduct implements Serializable {
+	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "idProduct")
-	private int idProduct;
-	
-	@Column(name = "Name")
+	@EmbeddedId
+	private VtProductPK id;
+
+	private Object description;
+
 	private String name;
-	
-	@Column(name = "Description")
-	private String description;
 
-	public int getIdProduct() {
-		return idProduct;
+	//bi-directional many-to-one association to VtSubproduct
+    @ManyToOne
+	@JoinColumn(name="vt_subproduct_id", referencedColumnName="id")
+	private VtSubproduct vtSubproduct;
+
+    public VtProduct() {
+    }
+
+	public VtProductPK getId() {
+		return this.id;
 	}
 
-	public void setIdProduct(int idProduct) {
-		this.idProduct = idProduct;
+	public void setId(VtProductPK id) {
+		this.id = id;
+	}
+	
+	public Object getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(Object description) {
+		this.description = description;
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getDescription() {
-		return description;
+	public VtSubproduct getVtSubproduct() {
+		return this.vtSubproduct;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setVtSubproduct(VtSubproduct vtSubproduct) {
+		this.vtSubproduct = vtSubproduct;
 	}
+	
 }

@@ -1,86 +1,92 @@
 package org.veetouch.model;
 
 import java.io.Serializable;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
+/**
+ * The persistent class for the customer_user database table.
+ * 
+ */
 @Entity
-@Table(name = "customer_user")
-public class CustomerUser implements Serializable
-{
-	private static final long serialVersionUID = 7978672504296897986L;
+@Table(name="customer_user")
+public class CustomerUser implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "idUser")
-	private int idUser;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
 
-	@Column(name = "Username")
-	private String username;
-	
-	@Column(name = "Password")
-	private String password;
-	
-	@Column(name = "Gender")
-	private boolean gender;
-	
-	@Column(name = "Email")
+	@Column(name="customer_company_id")
+	private int customerCompanyId;
+
 	private String email;
-	
-	@Column(name = "Phone")
+
+	private Object gender;
+
+	private String password;
+
 	private String phone;
-	
-	
-	public int getIdUser() {
-		return idUser;
+
+	private String username;
+
+    public CustomerUser() {
+    }
+
+	public int getId() {
+		return this.id;
 	}
 
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
+	public int getCustomerCompanyId() {
+		return this.customerCompanyId;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public boolean isGender() {
-		return gender;
-	}
-
-	public void setGender(boolean gender) {
-		this.gender = gender;
+	public void setCustomerCompanyId(int customerCompanyId) {
+		this.customerCompanyId = customerCompanyId;
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+	public Object getGender() {
+		return this.gender;
+	}
+
+	public void setGender(Object gender) {
+		this.gender = gender;
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public String getPhone() {
-		return phone;
+		return this.phone;
 	}
 
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+	public String getUsername() {
+		return this.username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 }

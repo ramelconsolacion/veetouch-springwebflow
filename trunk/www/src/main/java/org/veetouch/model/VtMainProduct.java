@@ -1,30 +1,34 @@
 package org.veetouch.model;
 
 import java.io.Serializable;
+import javax.persistence.*;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
+/**
+ * The persistent class for the vt_mainproduct database table.
+ * 
+ */
 @Entity
-@Table(name = "vt_mainproduct")
-public class VtMainProduct implements Serializable
-{
+@Table(name="vt_mainproduct")
+public class VtMainproduct implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	
-	@Column(name = "Name")
+
 	private String name;
 
+	//bi-directional many-to-one association to VtSubproduct
+	@OneToMany(mappedBy="vtMainproduct")
+	private List<VtSubproduct> vtSubproducts;
+
+    public VtMainproduct() {
+    }
+
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(int id) {
@@ -32,11 +36,19 @@ public class VtMainProduct implements Serializable
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<VtSubproduct> getVtSubproducts() {
+		return this.vtSubproducts;
+	}
+
+	public void setVtSubproducts(List<VtSubproduct> vtSubproducts) {
+		this.vtSubproducts = vtSubproducts;
 	}
 	
 }

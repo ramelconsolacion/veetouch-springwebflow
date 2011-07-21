@@ -1,4 +1,4 @@
-package org.veetouch.view.components.product;
+package org.veetouch.view.product;
 
 import java.io.Serializable;
 
