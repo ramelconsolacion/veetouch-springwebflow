@@ -23,7 +23,9 @@
 		</p:breadCrumb>
 		<h:panelGroup layout="block" style="padding-top: 10px;overflow:hidden;">
 			<h:panelGroup layout="block" style="vertical-align: top;float:left;padding-right: 10px;">
-				<h:form>				
+				<h:form>	
+					<p:menu model="#{menuBean.model}"/>
+								
 					<p:menu>
 						<p:submenu label="Point Of Sale">
 							<p:menuitem>
@@ -86,9 +88,11 @@
 							<li class="ui-datalist-item"> Volkswagen, 2006 </li>
 							<li class="ui-datalist-item"> Volkswagen, 1971 </li>
 				        </ul>
+				        <!-- 
 				        <p:dataList value="#{products}" var="product" itemType="disc">  
 						    #{product.name}
 						</p:dataList>
+						-->
 				        <h:outputText value="ทำไมต้องใช้ Web Hosting เว็บโฮสติ้ง กับเรา" />
 				        <h:outputText value="บริการทุกวัน โทรเข้ามาได้ 24 ชั่วโมง ไม่เว้นวันหยุด โทร 0-2187-0187 Hotline 086-700-4000, 084-142-4477 " />
 				        <h:outputText value="มีระบบ Anti Virus + Anti Spam System Filtering Gateway ป้องกัน Spam และไวรัส ได้ถึง 99.99% ให้ลูกค้าได้ใช้ ฟรี" />
