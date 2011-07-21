@@ -15,6 +15,7 @@ public class CustomerCompany implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(unique=true, nullable=false)
 	private int id;
 
     public CustomerCompany() {

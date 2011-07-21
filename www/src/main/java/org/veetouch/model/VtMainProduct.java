@@ -2,7 +2,6 @@ package org.veetouch.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -16,13 +15,11 @@ public class VtMainproduct implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(unique=true, nullable=false)
 	private int id;
 
+	@Column(length=45)
 	private String name;
-
-	//bi-directional many-to-one association to VtSubproduct
-	@OneToMany(mappedBy="vtMainproduct")
-	private List<VtSubproduct> vtSubproducts;
 
     public VtMainproduct() {
     }
@@ -43,12 +40,4 @@ public class VtMainproduct implements Serializable {
 		this.name = name;
 	}
 
-	public List<VtSubproduct> getVtSubproducts() {
-		return this.vtSubproducts;
-	}
-
-	public void setVtSubproducts(List<VtSubproduct> vtSubproducts) {
-		this.vtSubproducts = vtSubproducts;
-	}
-	
 }

@@ -15,19 +15,22 @@ public class CustomerUser implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(unique=true, nullable=false)
 	private int id;
 
-	@Column(name="customer_company_id")
-	private int customerCompanyId;
-
+	@Column(length=100)
 	private String email;
 
-	private Object gender;
+	@Column(nullable=false)
+	private byte gender;
 
+	@Column(nullable=false, length=8)
 	private String password;
 
+	@Column(length=15)
 	private String phone;
 
+	@Column(nullable=false, length=45)
 	private String username;
 
     public CustomerUser() {
@@ -41,14 +44,6 @@ public class CustomerUser implements Serializable {
 		this.id = id;
 	}
 
-	public int getCustomerCompanyId() {
-		return this.customerCompanyId;
-	}
-
-	public void setCustomerCompanyId(int customerCompanyId) {
-		this.customerCompanyId = customerCompanyId;
-	}
-
 	public String getEmail() {
 		return this.email;
 	}
@@ -57,11 +52,11 @@ public class CustomerUser implements Serializable {
 		this.email = email;
 	}
 
-	public Object getGender() {
+	public byte getGender() {
 		return this.gender;
 	}
 
-	public void setGender(Object gender) {
+	public void setGender(byte gender) {
 		this.gender = gender;
 	}
 
