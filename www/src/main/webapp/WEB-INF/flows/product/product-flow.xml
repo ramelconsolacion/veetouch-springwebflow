@@ -6,7 +6,7 @@
 	parent="parent-flow">
 	
 	<var name="galleriaBean" class="org.veetouch.primefaces.product.GalleriaOverall"/>
-	<var name="menuBean" class="org.veetouch.view.components.product.MenuBean" />
+	<var name="menuBean" class="org.veetouch.view.product.MenuBean" />
 
 	<on-start>
 		<evaluate expression="menuNavigator.setPage('PRODUCT')"></evaluate>
