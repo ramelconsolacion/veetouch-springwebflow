@@ -2,7 +2,6 @@ package org.veetouch.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -14,31 +13,28 @@ import java.util.List;
 public class VtSubproduct implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private VtSubproductPK id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(unique=true, nullable=false)
+	private int id;
 
+	@Column(length=45)
 	private String name;
 
-	//bi-directional many-to-one association to VtProduct
-	@OneToMany(mappedBy="vtSubproduct")
-	private List<VtProduct> vtProducts;
-
-	//bi-directional many-to-one association to VtMainproduct
-    @ManyToOne
-	@JoinColumn(name="vt_mainproduct_id")
-	private VtMainproduct vtMainproduct;
+	@Column(name="vt_mainproduct_id", nullable=false)
+	private int vtMainproductId;
 
     public VtSubproduct() {
     }
 
-	public VtSubproductPK getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(VtSubproductPK id) {
+	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public String getName() {
 		return this.name;
 	}
@@ -47,20 +43,12 @@ public class VtSubproduct implements Serializable {
 		this.name = name;
 	}
 
-	public List<VtProduct> getVtProducts() {
-		return this.vtProducts;
+	public int getVtMainproductId() {
+		return this.vtMainproductId;
 	}
 
-	public void setVtProducts(List<VtProduct> vtProducts) {
-		this.vtProducts = vtProducts;
-	}
-	
-	public VtMainproduct getVtMainproduct() {
-		return this.vtMainproduct;
+	public void setVtMainproductId(int vtMainproductId) {
+		this.vtMainproductId = vtMainproductId;
 	}
 
-	public void setVtMainproduct(VtMainproduct vtMainproduct) {
-		this.vtMainproduct = vtMainproduct;
-	}
-	
 }

@@ -13,34 +13,39 @@ import javax.persistence.*;
 public class VtProduct implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private VtProductPK id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(unique=true, nullable=false)
+	private int id;
 
-	private Object description;
+    @Lob()
+	@Column(nullable=false)
+	private String description;
 
+	@Column(nullable=false, length=45)
 	private String name;
 
-	//bi-directional many-to-one association to VtSubproduct
+	//uni-directional many-to-one association to VtSubproduct
     @ManyToOne
-	@JoinColumn(name="vt_subproduct_id", referencedColumnName="id")
+	@JoinColumn(name="vt_subproduct_id", nullable=false)
 	private VtSubproduct vtSubproduct;
 
     public VtProduct() {
     }
 
-	public VtProductPK getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(VtProductPK id) {
+	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public Object getDescription() {
+
+	public String getDescription() {
 		return this.description;
 	}
 
-	public void setDescription(Object description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
