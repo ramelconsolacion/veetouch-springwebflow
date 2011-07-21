@@ -6,7 +6,8 @@
 	parent="parent-flow">
 	
 	<var name="galleriaBean" class="org.veetouch.primefaces.product.GalleriaOverall"/>
-	
+	<var name="menuBean" class="org.veetouch.view.components.product.MenuBean" />
+
 	<on-start>
 		<evaluate expression="menuNavigator.setPage('PRODUCT')"></evaluate>
 	</on-start>
@@ -15,14 +16,24 @@
 		<on-entry>
 			<evaluate expression="vt_productService.listAllProduct()" result="viewScope.products" result-type="dataModel"></evaluate>
 		</on-entry>
+		<on-render>
+			<evaluate expression="menuBean.init()"></evaluate>
+		</on-render>
+		
 		<transition on="viewSubProduct" to="sub-product-list"></transition>
 	</view-state>
 	
 	<view-state id="sub-product-list">
+		<on-render>
+			<evaluate expression="menuBean.init()"></evaluate>
+		</on-render>
 		
 	</view-state>
 	
 	<view-state id="product-detail">
+		<on-render>
+			<evaluate expression="menuBean.init()"></evaluate>
+		</on-render>
 		
 	</view-state>
 	
