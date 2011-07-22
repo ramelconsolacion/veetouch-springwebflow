@@ -20,6 +20,9 @@ Import project
 	right click at project -> properties   --> Project Facets  --> select JPA
 5. Add JPA view
 	click at + view button -> other --> JPA
-6. Add 
+6. Delete folder src/java/META-INF
+7. right click at src/main/resources/META-INF/persistence.xml --> add to build path
+(This step force JPA to change file persistence to this file)
+7. Add 
 	connection to veetouch db
-7. Sync JPA
+8. Sync JPA
