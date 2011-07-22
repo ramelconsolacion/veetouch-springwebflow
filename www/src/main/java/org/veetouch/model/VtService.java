@@ -15,7 +15,6 @@ public class VtService implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(unique=true, nullable=false)
 	private int id;
 
     public VtService() {

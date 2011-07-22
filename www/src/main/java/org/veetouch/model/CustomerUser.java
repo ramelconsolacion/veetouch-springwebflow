@@ -15,22 +15,19 @@ public class CustomerUser implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(unique=true, nullable=false)
 	private int id;
 
-	@Column(length=100)
+	@Column(name="customer_company_id")
+	private int customerCompanyId;
+
 	private String email;
 
-	@Column(nullable=false)
 	private byte gender;
 
-	@Column(nullable=false, length=8)
 	private String password;
 
-	@Column(length=15)
 	private String phone;
 
-	@Column(nullable=false, length=45)
 	private String username;
 
     public CustomerUser() {
@@ -42,6 +39,14 @@ public class CustomerUser implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getCustomerCompanyId() {
+		return this.customerCompanyId;
+	}
+
+	public void setCustomerCompanyId(int customerCompanyId) {
+		this.customerCompanyId = customerCompanyId;
 	}
 
 	public String getEmail() {
