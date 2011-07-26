@@ -18,28 +18,30 @@
 		<p:breadCrumb id="breadcrumb">
 			<p:menuitem value="Home" url="product" />
 			<p:menuitem value="Overall Product" url="product" />
+			<p:menuitem value="#{subProduct.name}" url="#" />
 		</p:breadCrumb>
 		<h:panelGroup layout="block" style="padding-top: 10px;overflow:hidden;">
 			<h:panelGroup layout="block" style="vertical-align: top;float:left;padding-right: 10px;">
-				<p:menu>
-					<p:submenu label="Point Of Sale">
-						<p:menuitem value="Shop vServer" url="#" icon="ui-icon ui-icon-home"/>
-						<p:menuitem value="Shop vsPlugin" url="#" icon="ui-icon ui-icon-home"/>
-					</p:submenu>
-					<p:submenu label="vTable">
-						<p:menuitem value="Shop vOS" url="#" icon="ui-icon ui-icon-home"/>
-						<p:menuitem value="Shop vPlugin" url="#" icon="ui-icon ui-icon-home"/>
-					</p:submenu>
-				</p:menu>
+				<h:form>
+					<p:menu>
+						<c:forEach items="#{main_products}" var="mp">
+							<p:submenu label="#{mp.name}">
+								<c:forEach items="#{mp.vtSubproducts}" var="sp">
+									<p:menuitem>
+										<h:commandLink  value="#{sp.name}" action="viewSubProduct" >
+											<f:setPropertyActionListener target="#{flowScope.subProduct}" value="#{sp}" />
+										</h:commandLink>
+							    	</p:menuitem>
+						    	</c:forEach>
+							</p:submenu>
+						</c:forEach>
+					</p:menu>
+				</h:form>
 			</h:panelGroup>
 			<h:panelGroup layout="block" style="display:table-cell;width:777px;">
 				<p:panel style="width:100%;" styleClass="news-panel-content">
-					<h:outputText value="Sub Product Information" styleClass="information-header" />
-            		<h:outputText
-		                value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.   
-		                His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. T  
-		                hrough Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family, kind and benevolent to those who give respect,   
-		                but given to ruthless violence whenever anything stands against the good of the family." />  
+					<h:outputText value="#{subProduct.name}" styleClass="information-header" />
+            		<h:outputText value="#{subProduct.description}" />  
 					<h:form prependId="false" style="padding-top:15px;">
 		                <table width="100%" cellspacing="0" cellpadding="0" border="0" style="background: none; padding: 0px;">
 		                    <tbody>

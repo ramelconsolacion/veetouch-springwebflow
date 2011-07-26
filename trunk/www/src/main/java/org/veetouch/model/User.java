@@ -5,20 +5,17 @@ import javax.persistence.*;
 
 
 /**
- * The persistent class for the customer_user database table.
+ * The persistent class for the user database table.
  * 
  */
 @Entity
-@Table(name="customer_user")
-public class CustomerUser implements Serializable {
+@Table(name="user")
+public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-
-	@Column(name="customer_company_id")
-	private int customerCompanyId;
 
 	private String email;
 
@@ -30,7 +27,7 @@ public class CustomerUser implements Serializable {
 
 	private String username;
 
-    public CustomerUser() {
+    public User() {
     }
 
 	public int getId() {
@@ -39,14 +36,6 @@ public class CustomerUser implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getCustomerCompanyId() {
-		return this.customerCompanyId;
-	}
-
-	public void setCustomerCompanyId(int customerCompanyId) {
-		this.customerCompanyId = customerCompanyId;
 	}
 
 	public String getEmail() {

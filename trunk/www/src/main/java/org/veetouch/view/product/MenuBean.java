@@ -1,13 +1,20 @@
 package org.veetouch.view.product;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
-import javax.annotation.PostConstruct;
+import javax.faces.component.html.HtmlCommandLink;
+import javax.faces.context.FacesContext;
+import javax.faces.el.EvaluationException;
+import javax.faces.el.MethodBinding;
+import javax.faces.el.MethodNotFoundException;
 
 import org.primefaces.component.menuitem.MenuItem;
 import org.primefaces.component.submenu.Submenu;
 import org.primefaces.model.DefaultMenuModel;
 import org.primefaces.model.MenuModel;
+import org.veetouch.model.VtMainproduct;
+import org.veetouch.model.VtSubproduct;
 
 public class MenuBean implements Serializable
 {
@@ -15,36 +22,29 @@ public class MenuBean implements Serializable
 	
 	private MenuModel model;
 	
-	public void init()
+
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	public void init(ArrayList mainProductList)
 	{
+		ArrayList<VtMainproduct> temp_mainProductList = mainProductList;
 		model = new DefaultMenuModel();
-		
-		//First submenu
-        Submenu submenu = new Submenu();  
-        submenu.setLabel("Dynamic Submenu 1");  
-          
-        MenuItem item = new MenuItem();  
-        item.setValue("Dynamic Menuitem 1.1");  
-        item.setUrl("#");  
-        submenu.getChildren().add(item);  
-          
-        model.addSubmenu(submenu);  
-          
-        //Second submenu  
-        submenu = new Submenu();  
-        submenu.setLabel("Dynamic Submenu 2");  
-          
-        item = new MenuItem();  
-        item.setValue("Dynamic Menuitem 2.1");  
-        item.setUrl("#");  
-        submenu.getChildren().add(item);  
-          
-        item = new MenuItem();  
-        item.setValue("Dynamic Menuitem 2.2");  
-        item.setUrl("#");  
-        submenu.getChildren().add(item);  
-          
-        model.addSubmenu(submenu);
+		for (VtMainproduct vtMainproduct : temp_mainProductList) 
+		{
+			Submenu submenu = new Submenu();
+			submenu.setLabel(vtMainproduct.getName());
+			for (VtSubproduct vtSubProduct : vtMainproduct.getVtSubproducts()) 
+			{
+				MenuItem item = new MenuItem();
+				HtmlCommandLink commandLink = new HtmlCommandLink();
+				commandLink.setValue(vtSubProduct.getName());
+				//commandLink.setAction();
+				commandLink.setType("submit");
+				// commandLink.setAction(FacesContext.getCurrentInstance().getApplication().createMethodBinding("viewSubProduct",null));
+				item.getChildren().add(commandLink);
+				submenu.getChildren().add(item);
+			}
+			model.addSubmenu(submenu);
+		}
 	}
 	
 	public MenuModel getModel() 

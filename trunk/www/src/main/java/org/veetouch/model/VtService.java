@@ -2,6 +2,7 @@ package org.veetouch.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -17,6 +18,15 @@ public class VtService implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 
+    @Lob()
+	private String description;
+
+	private String logo;
+
+	//bi-directional many-to-one association to VtServiceSs
+	@OneToMany(mappedBy="vtService")
+	private List<VtServiceSs> vtServiceSses;
+
     public VtService() {
     }
 
@@ -28,4 +38,28 @@ public class VtService implements Serializable {
 		this.id = id;
 	}
 
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getLogo() {
+		return this.logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
+
+	public List<VtServiceSs> getVtServiceSses() {
+		return this.vtServiceSses;
+	}
+
+	public void setVtServiceSses(List<VtServiceSs> vtServiceSses) {
+		this.vtServiceSses = vtServiceSses;
+	}
+	
 }
