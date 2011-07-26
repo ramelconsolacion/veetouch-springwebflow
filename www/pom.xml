@@ -96,6 +96,11 @@
 		    <version>${mysql-connector-java-verion}</version>
 		</dependency>
         <!-- JSF: Mojarra, PrimeFaces -->
+        <dependency>
+		  <groupId>javax.servlet</groupId>
+		  <artifactId>jstl</artifactId>
+		  <version>1.1.2</version>
+		</dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>

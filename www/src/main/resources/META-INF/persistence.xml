@@ -5,12 +5,13 @@
              version="1.0">
 	<persistence-unit name="veetouch-springwebflow">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>org.veetouch.model.CustomerCompany</class>
-		<class>org.veetouch.model.CustomerUser</class>
 		<class>org.veetouch.model.VtMainproduct</class>
 		<class>org.veetouch.model.VtProduct</class>
 		<class>org.veetouch.model.VtService</class>
 		<class>org.veetouch.model.VtSubproduct</class>
+		<class>org.veetouch.model.User</class>
+		<class>org.veetouch.model.VtProductSs</class>
+		<class>org.veetouch.model.VtServiceSs</class>
 		
 		<exclude-unlisted-classes>false</exclude-unlisted-classes> 
 		<properties>

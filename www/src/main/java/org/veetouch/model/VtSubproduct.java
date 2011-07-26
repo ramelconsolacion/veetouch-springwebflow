@@ -18,6 +18,9 @@ public class VtSubproduct implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 
+    @Lob()
+	private String description;
+
 	private String name;
 
 	//bi-directional many-to-one association to VtProduct
@@ -38,6 +41,14 @@ public class VtSubproduct implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getName() {

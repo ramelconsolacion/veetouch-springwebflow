@@ -5,36 +5,31 @@
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
 	parent="parent-flow">
 	
-	<var name="galleriaBean" class="org.veetouch.primefaces.product.GalleriaOverall"/>
-	<var name="menuBean" class="org.veetouch.view.product.MenuBean" />
-
+	<!-- 
+	<var name="subProduct" class="org.veetouch.model.VtSubproduct" />
+	<var name="product" class="org.veetouch.model.VtProduct" />
+	 -->
+	
 	<on-start>
 		<evaluate expression="menuNavigator.setPage('PRODUCT')"></evaluate>
+		<evaluate expression="vt_productService.listAllMainProduct()" result="flowScope.main_products"></evaluate>
 	</on-start>
 	
-	<view-state id="product-list">
-		<on-entry>
-			<evaluate expression="vt_productService.listAllProduct()" result="viewScope.products" result-type="dataModel"></evaluate>
-		</on-entry>
-		<on-render>
-			<evaluate expression="menuBean.init()"></evaluate>
-		</on-render>
-		
-		<transition on="viewSubProduct" to="sub-product-list"></transition>
+	<view-state id="main-product-list">
+		<transition on="viewSubProduct" to="sub-product-list">
+		</transition>
 	</view-state>
-	
+
 	<view-state id="sub-product-list">
-		<on-render>
-			<evaluate expression="menuBean.init()"></evaluate>
-		</on-render>
-		
+		<transition on="viewSubProduct" to="sub-product-list">
+		</transition>
+		<transition on="viewProductDetail" to="product-detail">
+		</transition>
 	</view-state>
 	
 	<view-state id="product-detail">
-		<on-render>
-			<evaluate expression="menuBean.init()"></evaluate>
-		</on-render>
-		
+		<transition on="viewSubProduct" to="sub-product-list">
+		</transition>
 	</view-state>
-	
+
 </flow>
