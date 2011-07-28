@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+<f:view contentType="text/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>VT</title>
+	<link rel="shortcut icon" href="${request.contextPath}/images/favicon.ico" />
+	<link rel="stylesheet" href="${request.contextPath}/styles/blueprint/screen.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="${request.contextPath}/styles/blueprint/print.css" type="text/css" media="print" />
+	<link rel="stylesheet" href="${request.contextPath}/styles/veetouch.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="${request.contextPath}/styles/menus.css" type="text/css" media="screen" />
+	<!--[if lt IE 8]>
+		<link rel="stylesheet" href="${request.servletPath}/styles/blueprint/ie.css" type="text/css" media="screen, projection" />
+	<![endif]-->
+	<ui:insert name="headIncludes"/>
+</h:head>
+<h:body>
+<div class="container">
+	<div class="content" style="padding-top: 8px;padding-bottom: 8px;">
+		<p:panel style="width:100%;" styleClass="news-panel-content">
+			<f:facet name="header" styleClass="news-panel-header" headerClass="news-panel-header">
+				<h:outputText value="Administrator" style="font-size: 2.0em;"/>
+			</f:facet>
+			<!-- all menu -->
+			<h:form>
+				<p:menubar>
+					<p:menuitem value="Home" url="admin" icon="ui-icon ui-icon-home" />  
+					<p:submenu label="Web-Module" >
+						<p:menuitem value="Product" url="admin-product" />  
+						<p:menuitem value="Service" url="#" />
+					</p:submenu>
+					<p:menuitem value="Quit" url="#" icon="ui-icon ui-icon-closethick" />  
+				</p:menubar>
+			</h:form>
+			<div style="padding-top: 8px;">
+				<ui:insert name="content"/>
+			</div>
+		</p:panel>
+	</div>
+</div>
+<div id="footer" style="padding-top: 0px;padding-bottom: 10px;">
+	Copyright &copy; 2011 VT. All rights reserved 
+</div> <!-- end footer -->
+</h:body>
+</f:view>
+</html>

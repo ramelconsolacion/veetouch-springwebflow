@@ -26,7 +26,6 @@ public class JpaProductService implements ProductService
 	@SuppressWarnings("unchecked")
 	@Transactional(readOnly = true)
 	public List<VtMainproduct> listAllMainProduct() {
-		//List<VtMainproduct> mainproductList = em.createQuery("SELECT vm FROM VtMainproduct vm LEFT JOIN FETCH vm.vtSubproducts").getResultList();
 		List<VtMainproduct> mainproductList = em.createQuery("SELECT vm FROM VtMainproduct vm LEFT JOIN FETCH vm.vtSubproducts GROUP BY vm.id").getResultList();
 		return mainproductList;
 	}
