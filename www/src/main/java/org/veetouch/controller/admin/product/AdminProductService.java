@@ -1,11 +1,11 @@
-package org.veetouch.controller.product;
+package org.veetouch.controller.admin.product;
 
 import java.util.List;
 
 import org.veetouch.model.VtMainproduct;
-import org.veetouch.model.VtProduct;
 
-public interface ProductService 
+
+public interface AdminProductService 
 {
 	/**
 	 * Get list of all main product
@@ -17,6 +17,5 @@ public interface ProductService
 	 * Get list of all product
 	 * @return List of product
 	 */
-	public List<VtProduct> listAllProduct();
-	
+	public List<VtMainproduct> listAllProduct();
 }
