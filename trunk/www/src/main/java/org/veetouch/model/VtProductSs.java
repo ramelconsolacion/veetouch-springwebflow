@@ -15,14 +15,15 @@ public class VtProductSs implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="idvt_product_ss")
+	@Column(name="idvt_product_ss", unique=true, nullable=false)
 	private int idvtProductSs;
 
+	@Column(nullable=false, length=55)
 	private String image;
 
 	//bi-directional many-to-one association to VtProduct
     @ManyToOne
-	@JoinColumn(name="vt_product_id")
+	@JoinColumn(name="vt_product_id", nullable=false)
 	private VtProduct vtProduct;
 
     public VtProductSs() {

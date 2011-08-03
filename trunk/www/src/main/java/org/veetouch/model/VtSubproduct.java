@@ -16,11 +16,14 @@ public class VtSubproduct implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(unique=true, nullable=false)
 	private int id;
 
     @Lob()
+	@Column(nullable=false)
 	private String description;
 
+	@Column(nullable=false, length=45)
 	private String name;
 
 	//bi-directional many-to-one association to VtProduct
@@ -29,7 +32,7 @@ public class VtSubproduct implements Serializable {
 
 	//bi-directional many-to-one association to VtMainproduct
     @ManyToOne
-	@JoinColumn(name="vt_mainproduct_id")
+	@JoinColumn(name="vt_mainproduct_id", nullable=false)
 	private VtMainproduct vtMainproduct;
 
     public VtSubproduct() {

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence" 
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" 
-             version="1.0">
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0">
 	<persistence-unit name="veetouch-springwebflow">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>org.veetouch.model.VtMainproduct</class>
@@ -11,8 +12,7 @@
 		<class>org.veetouch.model.VtSubproduct</class>
 		<class>org.veetouch.model.User</class>
 		<class>org.veetouch.model.VtProductSs</class>
-		<class>org.veetouch.model.VtServiceSs</class>
-		
+		<class>org.veetouch.model.VtServiceSs</class>	
 		<exclude-unlisted-classes>false</exclude-unlisted-classes> 
 		<properties>
       	 	<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>

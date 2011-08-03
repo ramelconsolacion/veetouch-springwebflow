@@ -16,11 +16,14 @@ public class VtService implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(unique=true, nullable=false)
 	private int id;
 
     @Lob()
+	@Column(nullable=false)
 	private String description;
 
+	@Column(length=55)
 	private String logo;
 
 	//bi-directional many-to-one association to VtServiceSs

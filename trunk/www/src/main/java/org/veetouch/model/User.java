@@ -15,16 +15,22 @@ public class User implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(unique=true, nullable=false)
 	private int id;
 
+	@Column(length=100)
 	private String email;
 
+	@Column(nullable=false)
 	private byte gender;
 
+	@Column(nullable=false, length=8)
 	private String password;
 
+	@Column(length=15)
 	private String phone;
 
+	@Column(nullable=false, length=45)
 	private String username;
 
     public User() {
