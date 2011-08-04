@@ -12,10 +12,10 @@
 	
 	<view-state id="product-list">
 		<on-render>
-			<evaluate expression="vt_productService.listAllMainProduct()" result="viewScope.main_products" ></evaluate>
+			<evaluate expression="vt_adminproductService.listAllMainProduct()" result="viewScope.main_products" ></evaluate>
 		</on-render>
-		<transition on="addMainProduct">
-			<evaluate expression="vt_productService.listAllMainProduct()" result="viewScope.main_products" ></evaluate>
+		<transition on="add-MainProduct">
+			<evaluate expression="vt_adminproductService.addMainProduct()"></evaluate>
 		</transition>
 	</view-state>
 

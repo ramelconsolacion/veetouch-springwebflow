@@ -7,6 +7,9 @@
 	template="/WEB-INF/layouts/admin-standard.xhtml">
 	
 	<ui:define name="content">
+		<h:form>
+			<p:commandButton value="save" action="add-MainProduct"/>
+		</h:form>
 		<p:layout style="width:auto;height:480px;">
 			<p:layoutUnit position="left" scrollable="true" collapsible="true" width="250">
 				<h:form id="leftPanel">
@@ -93,7 +96,7 @@
 					<h:outputLabel value="Main Product Name  *  " for="addMainProduct_Name"/>
 					<h:inputText id="addMainProduct_Name" value="" required="true"/>
 					<p:message  for="addMainProduct_Name" />
-					<p:commandButton type="submit" value="save" action="addMainProduct"/>
+					<p:commandButton type="submit" value="save" action="add-MainProduct"/>
 					<p:commandButton type="reset" value="cancel" onclick="addMainProduct.hide()" immediate="true" />
 				</h:panelGrid>
 			</h:form>
