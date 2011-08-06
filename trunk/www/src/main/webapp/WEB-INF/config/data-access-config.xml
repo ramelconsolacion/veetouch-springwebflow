@@ -27,7 +27,7 @@
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/veetouch_veetouch" />
+		<property name="url" value="jdbc:mysql://localhost:3306/veetouch_veetouch?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8" />
 		<property name="username" value="veetouch_admin" />
 		<property name="password" value="Jreaper1" />
 	</bean>

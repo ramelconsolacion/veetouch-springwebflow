@@ -7,10 +7,7 @@
 	template="/WEB-INF/layouts/admin-standard.xhtml">
 	
 	<ui:define name="content">
-		<h:form>
-			<p:commandButton value="save" action="add-MainProduct"/>
-		</h:form>
-		<p:layout style="width:auto;height:480px;">
+		<p:layout style="width:auto;height:800px;">
 			<p:layoutUnit position="left" scrollable="true" collapsible="true" width="250">
 				<h:form id="leftPanel">
 					<p:treeTable value="#{treeBean.root}" var="product" style="width: 100%" >
@@ -92,16 +89,29 @@
 		-->
 		<p:dialog  widgetVar="addMainProduct" header="New Main Product" modal="true" hideEffect="explode">
 			<h:form>
-				<h:panelGrid columns="3">
-					<h:outputLabel value="Main Product Name  *  " for="addMainProduct_Name"/>
-					<h:inputText id="addMainProduct_Name" value="" required="true"/>
-					<p:message  for="addMainProduct_Name" />
-					<p:commandButton type="submit" value="save" action="add-MainProduct"/>
-					<p:commandButton type="reset" value="cancel" onclick="addMainProduct.hide()" immediate="true" />
+				<p:messages />
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Main Product Name * " for="addMainProduct_Name"/>
+					<h:inputText id="addMainProduct_Name" value="#{vt_adminproductService.mainProductName}" required="true"/>
+					<p:commandButton type="submit" value="save"   action="add-MainProduct" update="@form,:leftPanel" oncomplete="resultStatus(xhr, status, args,addMainProduct);"/>
+					<p:commandButton type="reset"  value="cancel" onclick="addMainProduct.hide()" immediate="true" />
 				</h:panelGrid>
 			</h:form>
 		</p:dialog>
 		
+		<script>
+			function resultStatus(xhr, status, args,widgetVar)
+			{
+				if(!args.saved)
+				{
+					saveFailedDialog.show();
+				}
+				else
+				{
+					widgetVar.hide();
+				}
+			}
+		</script>
 	</ui:define>
 	
 </ui:composition>

@@ -10,6 +10,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>VT</title>
 	<link rel="shortcut icon" href="${request.contextPath}/images/favicon.ico" />
+	
+	<script type="text/javascript" src="${request.contextPath}/js/common.js" />
+	
 	<link rel="stylesheet" href="${request.contextPath}/styles/blueprint/screen.css" type="text/css" media="screen, projection" />
 	<link rel="stylesheet" href="${request.contextPath}/styles/blueprint/print.css" type="text/css" media="print" />
 	<link rel="stylesheet" href="${request.contextPath}/styles/veetouch.css" type="text/css" media="screen" />
@@ -45,7 +48,28 @@
 </div>
 <div id="footer" style="padding-top: 0px;padding-bottom: 10px;">
 	Copyright &copy; 2011 VT. All rights reserved 
-</div> <!-- end footer -->
+</div> 
+<!-- end footer -->
+
+<!-- COMMON DIALOG -->
+<!-- AJAX STATUS -->
+<p:dialog widgetVar="statusDialog"  draggable="false" modal="true" header="Status">
+	<div align="center">
+		<h:graphicImage value="/css/images/ajax-loader.gif" />  
+	</div>
+</p:dialog>
+<!-- SAVE FAILED-->
+<p:dialog header="Save Failed" widgetVar="saveFailedDialog" 
+	width="500" modal="true" zindex="3" >
+	<h:form>
+		<h:panelGrid columns="2" >
+			 <p:graphicImage value="/css/images/alert_icon_16x15.png" />  
+             <h:outputLabel value="  Sorry, save failed!" />
+		</h:panelGrid>
+		<p:commandButton value="ok" oncomplete="saveFailedDialog.hide()"></p:commandButton>
+	</h:form>
+</p:dialog>
+
 </h:body>
 </f:view>
 </html>
