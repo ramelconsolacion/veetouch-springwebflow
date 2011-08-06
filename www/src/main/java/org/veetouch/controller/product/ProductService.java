@@ -7,6 +7,8 @@ import org.veetouch.model.VtProduct;
 
 public interface ProductService 
 {
+	public boolean addMainProduct(VtMainproduct mainProduct);
+	
 	/**
 	 * Get list of all main product
 	 * @return List of main product
