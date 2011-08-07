@@ -5,13 +5,18 @@ import java.util.List;
 import org.veetouch.controller.product.ProductService;
 import org.veetouch.model.VtMainproduct;
 import org.veetouch.model.VtProduct;
+import org.veetouch.model.VtSubproduct;
 
 
 public interface AdminProductService 
 {
 	/**
-	 * Clear Temp value after submit to the system
+	 * Temp value
 	 */
+	public String getProductName();	
+	public void setProductName(String mainProductName);
+	public String getProductDes();
+	public void setProductDes(String productDes);
 	public void clearTempValue();
 	
 	/**
@@ -26,13 +31,18 @@ public interface AdminProductService
 	 */
 	public List<VtProduct> listAllProduct();
 	
-	
 	/**
-	 * Add main product
+	 * Main product
 	 */
 	public boolean addMainProduct(ProductService product_service);
+	public VtMainproduct getSelectedMainProduct();
+	public void setSelectedMainProduct(VtMainproduct selectedMainProduct);
 	
-	public String getMainProductName();	
-	public void setMainProductName(String mainProductName);
+	/**
+	 * Sub product
+	 */
+	public boolean addSubProduct(ProductService product_service);
+	public VtSubproduct getSelectedSubProduct();
+	public void setSelectedSubProduct(VtSubproduct selectedSubProduct);
 
 }

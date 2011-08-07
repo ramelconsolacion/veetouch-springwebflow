@@ -10,7 +10,7 @@
 		<p:layout style="width:auto;height:800px;">
 			<p:layoutUnit position="left" scrollable="true" collapsible="true" width="250">
 				<h:form id="leftPanel">
-					<p:treeTable value="#{treeBean.root}" var="product" style="width: 100%" >
+					<p:treeTable value="#{productTreeBean.root}" var="product" style="width: 100%" >
 						<p:column style="width:150px;">
 							<f:facet name="header">
 								Name
@@ -29,12 +29,23 @@
 								</div>
 							</f:facet>
 							<div align="center" >
-								<h:panelGrid id="panel" columns="3" styleClass="panel-grid-toolbox">
-									<p:commandLink title="Edit Module" styleClass="ui-icon ui-icon-pencil" >
+								<h:panelGrid columns="3" styleClass="panel-grid-toolbox" rendered="#{product.class == 'class org.veetouch.model.VtMainproduct'}">
+									<p:commandLink update=":editMainProductForm" oncomplete="editMainProduct.show()" title="Edit Main product" styleClass="ui-icon ui-icon-pencil" >
+										<f:setPropertyActionListener value="#{product}" target="#{vt_adminproductService.selectedMainProduct}" />
 									</p:commandLink>
-									<p:commandLink title="Delete Module" styleClass="ui-icon ui-icon-trash" >
+									<p:commandLink update=":form:leftPanel" oncomplete="removeMainProduct.show()" title="Delete Main product" styleClass="ui-icon ui-icon-trash" >
+										<f:setPropertyActionListener value="#{product}" target="#{vt_adminproductService.selectedMainProduct}" />
 									</p:commandLink>
-									<p:commandLink title="Add Sub Module" styleClass="ui-icon ui-icon-plusthick">
+									<p:commandLink title="Add Sub Product" styleClass="ui-icon ui-icon-plusthick" onclick="addSubProduct_Des.init()" oncomplete="addSubProduct.show()">
+										<f:setPropertyActionListener value="#{product}" target="#{vt_adminproductService.selectedMainProduct}" />
+									</p:commandLink>
+								</h:panelGrid>
+								<h:panelGrid columns="2" styleClass="panel-grid-toolbox" rendered="#{product.class == 'class org.veetouch.model.VtSubproduct'}">
+									<p:commandLink update=":editSubProductForm" onclick="editSubProduct_Des.init()" oncomplete="editSubProduct.show()" title="Edit Sub product" styleClass="ui-icon ui-icon-pencil" >
+										<f:setPropertyActionListener value="#{product}" target="#{vt_adminproductService.selectedSubProduct}" />
+									</p:commandLink>
+									<p:commandLink update=":form:leftPanel" oncomplete="removeSubProduct.show()" title="Delete Sub product" styleClass="ui-icon ui-icon-trash" >
+										<f:setPropertyActionListener value="#{product}" target="#{vt_adminproductService.selectedSubProduct}" />
 									</p:commandLink>
 								</h:panelGrid>
 							</div>
@@ -84,7 +95,7 @@
 		
 		<!-- 
 		****************************************
-		Add Main-Product Dialog
+		Add Dialog
 		****************************************  
 		-->
 		<p:dialog  widgetVar="addMainProduct" header="New Main Product" modal="true" hideEffect="explode">
@@ -92,12 +103,77 @@
 				<p:messages />
 				<h:panelGrid columns="2">
 					<h:outputLabel value="Main Product Name * " for="addMainProduct_Name"/>
-					<h:inputText id="addMainProduct_Name" value="#{vt_adminproductService.mainProductName}" required="true"/>
+					<h:inputText id="addMainProduct_Name" value="#{vt_adminproductService.productName}" required="true"/>
 					<p:commandButton type="submit" value="save"   action="add-MainProduct" update="@form,:leftPanel" oncomplete="resultStatus(xhr, status, args,addMainProduct);"/>
 					<p:commandButton type="reset"  value="cancel" onclick="addMainProduct.hide()" immediate="true" />
 				</h:panelGrid>
 			</h:form>
 		</p:dialog>
+		
+		<p:dialog  widgetVar="addSubProduct" header="New Sub Product" modal="true" hideEffect="explode">
+			<h:form>
+				<p:messages />
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Sub Product Name * " for="addSubProduct_Name"/>
+					<h:inputText id="addSubProduct_Name" value="#{vt_adminproductService.productName}" required="true"/>
+					<h:outputLabel value="Description " />
+					<p:editor widgetVar="addSubProduct_Des" lazy="true" value="#{vt_adminproductService.productDes}" width="600" />
+					<p:commandButton type="submit" value="save"   action="add-SubProduct" update="@form,:leftPanel" oncomplete="resultStatus(xhr, status, args,addSubProduct);"/>
+					<p:commandButton type="reset"  value="cancel" onclick="addSubProduct.hide()" immediate="true" />
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+		
+		<!-- 
+		**************************************** 
+		Edit Dialog
+		**************************************** 
+		-->
+		<p:dialog widgetVar="editMainProduct" header="Edit Main Product" modal="true">
+			<h:form id="editMainProductForm">
+				<p:messages />
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Main Product Name * " for="editModName"></h:outputLabel>
+					<h:inputText id="editMainProduct_Name" value="#{vt_adminproductService.selectedMainProduct.name}" required="true" />
+					<p:commandButton type="submit" value="save" action="edit-MainProduct" update="@form,:leftPanel" oncomplete="resultStatus(xhr, status, args,editMainProduct)" />
+					<p:commandButton type="reset" value="cancel" onclick="editMainProduct.hide()" />
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+
+		<p:dialog widgetVar="editSubProduct" header="Edit Sub Product" modal="true">
+			<h:form id="editSubProductForm">
+				<p:messages />
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Sub Product Name * "/>
+					<h:inputText value="#{vt_adminproductService.selectedSubProduct.name}" required="true"/>
+					<h:outputLabel value="Description " />
+					<p:editor widgetVar="editSubProduct_Des" value="#{vt_adminproductService.selectedSubProduct.description}" width="600" />
+					<p:commandButton type="submit" value="save"   action="edit-SubProduct" update="@form,:leftPanel" oncomplete="resultStatus(xhr, status, args,editSubProduct);"/>
+					<p:commandButton type="reset"  value="cancel" onclick="editSubProduct.hide()" immediate="true" />
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+		
+		<!-- 
+		**************************************** 
+		Delete Dialog
+		****************************************  
+		-->		
+		<p:confirmDialog widgetVar="removeMainProduct" message="Are you sure?" width="200"  hideEffect="explode"  
+                    header="Confirm" severity="alert" >
+            <h:form>
+        		<p:commandButton value="Yes sure" action="remove-MainProduct" update="@form,:leftPanel" oncomplete="removeMainProduct.hide()"/>  
+        		<p:commandButton value="Not yet"  onclick="removeMainProduct.hide()" type="button" />  
+    		</h:form>
+    	</p:confirmDialog> 
+    	
+    	<p:confirmDialog widgetVar="removeSubProduct" message="Are you sure?" width="200"  hideEffect="explode" header="Confirm" severity="alert" >
+            <h:form>
+        		<p:commandButton value="Yes sure" action="remove-SubProduct" update="@form,:leftPanel" oncomplete="removeSubProduct.hide()"/>  
+        		<p:commandButton value="Not yet"  onclick="removeSubProduct.hide()" type="button" />
+    		</h:form>
+    	</p:confirmDialog>
 		
 		<script>
 			function resultStatus(xhr, status, args,widgetVar)

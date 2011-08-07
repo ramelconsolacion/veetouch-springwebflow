@@ -4,21 +4,18 @@ import java.util.List;
 
 import org.veetouch.model.VtMainproduct;
 import org.veetouch.model.VtProduct;
+import org.veetouch.model.VtSubproduct;
 
 public interface ProductService 
 {
 	public boolean addMainProduct(VtMainproduct mainProduct);
-	
-	/**
-	 * Get list of all main product
-	 * @return List of main product
-	 */
+	public void removeMainProduct(VtMainproduct mainProduct);
+	public boolean editMainProduct(VtMainproduct mainProduct);
 	public List<VtMainproduct> listAllMainProduct();
-	
-	/**
-	 * Get list of all product
-	 * @return List of product
-	 */
 	public List<VtProduct> listAllProduct();
 	
+	
+	public boolean addSubProduct(VtSubproduct subProduct);
+	public void removeSubProduct(VtSubproduct subProduct);
+	public boolean editSubProduct(VtSubproduct subProduct);
 }

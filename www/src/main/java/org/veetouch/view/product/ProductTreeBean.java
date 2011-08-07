@@ -8,7 +8,7 @@ import org.primefaces.model.TreeNode;
 import org.veetouch.model.VtMainproduct;
 import org.veetouch.model.VtSubproduct;
 
-public class TreeBean implements Serializable
+public class ProductTreeBean implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 	

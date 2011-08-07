@@ -23,7 +23,8 @@ public class VtMainproduct implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to VtSubproduct
-	@OneToMany(mappedBy="vtMainproduct")
+	//@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER,mappedBy="vtMainproduct")
+	@OneToMany(cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH}, fetch = FetchType.EAGER,mappedBy="vtMainproduct")
 	private List<VtSubproduct> vtSubproducts;
 
     public VtMainproduct() {

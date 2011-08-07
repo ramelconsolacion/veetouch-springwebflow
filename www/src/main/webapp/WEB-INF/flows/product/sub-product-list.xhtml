@@ -41,7 +41,7 @@
 			<h:panelGroup layout="block" style="display:table-cell;width:777px;">
 				<p:panel style="width:100%;" styleClass="news-panel-content">
 					<h:outputText value="#{subProduct.name}" styleClass="information-header" />
-            		<h:outputText value="#{subProduct.description}" />  
+            		<h:outputText value="#{subProduct.description}" escape="false"/>  
 					<h:form prependId="false" style="padding-top:15px;">
 		                <table width="100%" cellspacing="0" cellpadding="0" border="0" style="background: none; padding: 0px;">
 		                    <tbody>
