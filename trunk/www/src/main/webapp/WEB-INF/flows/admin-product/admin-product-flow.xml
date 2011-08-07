@@ -5,9 +5,9 @@
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
 	parent="parent-flow">
 	
-	<var name="treeBean" class="org.veetouch.view.product.TreeBean" />
+	<var name="productTreeBean" class="org.veetouch.view.product.ProductTreeBean" />
 	<on-start>
-		<evaluate expression="treeBean.init(vt_productService.listAllMainProduct())"></evaluate>
+		<evaluate expression="productTreeBean.init(vt_productService.listAllMainProduct())"></evaluate>
 	</on-start>
 	
 	<view-state id="product-list">
@@ -17,8 +17,32 @@
 		<transition on="add-MainProduct">
 			<evaluate expression="vt_adminproductService.addMainProduct(vt_productService)"></evaluate>
 			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
-			<evaluate expression="vt_adminproductService.listAllMainProduct()" result="viewScope.main_products" ></evaluate>
-			<evaluate expression="treeBean.init(vt_productService.listAllMainProduct())"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productService.listAllMainProduct())"></evaluate>
+		</transition>
+		<transition on="edit-MainProduct">
+			<evaluate expression="vt_productService.editMainProduct(vt_adminproductService.getSelectedMainProduct())"></evaluate>
+			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productService.listAllMainProduct())"></evaluate>
+		</transition>
+		<transition on="remove-MainProduct">
+			<evaluate expression="vt_productService.removeMainProduct(vt_adminproductService.getSelectedMainProduct())"></evaluate>
+			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productService.listAllMainProduct())"></evaluate>
+		</transition>
+		<transition on="add-SubProduct">
+			<evaluate expression="vt_adminproductService.addSubProduct(vt_productService)"></evaluate>
+			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productService.listAllMainProduct())"></evaluate>
+		</transition>
+		<transition on="edit-SubProduct">
+			<evaluate expression="vt_productService.editSubProduct(vt_adminproductService.getSelectedSubProduct())"></evaluate>
+			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productService.listAllMainProduct())"></evaluate>
+		</transition>
+		<transition on="remove-SubProduct">
+			<evaluate expression="vt_productService.removeSubProduct(vt_adminproductService.getSelectedSubProduct())"></evaluate>
+			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productService.listAllMainProduct())"></evaluate>
 		</transition>
 	</view-state>
 
