@@ -6,43 +6,57 @@
 	parent="parent-flow">
 	
 	<var name="productTreeBean" class="org.veetouch.view.product.ProductTreeBean" />
+	<var name="logoUploadBean" class="org.veetouch.view.product.LogoUploadBean" />
+	
 	<on-start>
-		<evaluate expression="productTreeBean.init(vt_productService.listAllMainProduct())"></evaluate>
+		<evaluate expression="productTreeBean.init(vt_productUtilService.listMenuMainProduct())"></evaluate>
 	</on-start>
 	
 	<view-state id="product-list">
-		<on-render>
-			<evaluate expression="vt_adminproductService.listAllMainProduct()" result="viewScope.main_products" ></evaluate>
-		</on-render>
+		<transition on="viewTestCaseList">
+			<evaluate expression="vt_adminproductService.getProductList()" result="viewScope.products"></evaluate>
+		</transition>
 		<transition on="add-MainProduct">
-			<evaluate expression="vt_adminproductService.addMainProduct(vt_productService)"></evaluate>
+			<evaluate expression="vt_adminproductService.addMainProduct(vt_productUtilService)"></evaluate>
 			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
-			<evaluate expression="productTreeBean.init(vt_productService.listAllMainProduct())"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productUtilService.listMenuMainProduct())"></evaluate>
 		</transition>
 		<transition on="edit-MainProduct">
-			<evaluate expression="vt_productService.editMainProduct(vt_adminproductService.getSelectedMainProduct())"></evaluate>
+			<evaluate expression="vt_productUtilService.editMainProduct(vt_adminproductService.getSelectedMainProduct())"></evaluate>
 			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
-			<evaluate expression="productTreeBean.init(vt_productService.listAllMainProduct())"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productUtilService.listMenuMainProduct())"></evaluate>
 		</transition>
 		<transition on="remove-MainProduct">
-			<evaluate expression="vt_productService.removeMainProduct(vt_adminproductService.getSelectedMainProduct())"></evaluate>
+			<evaluate expression="vt_productUtilService.removeMainProduct(vt_adminproductService.getSelectedMainProduct())"></evaluate>
 			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
-			<evaluate expression="productTreeBean.init(vt_productService.listAllMainProduct())"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productUtilService.listMenuMainProduct())"></evaluate>
 		</transition>
 		<transition on="add-SubProduct">
-			<evaluate expression="vt_adminproductService.addSubProduct(vt_productService)"></evaluate>
+			<evaluate expression="vt_adminproductService.addSubProduct(vt_productUtilService)"></evaluate>
 			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
-			<evaluate expression="productTreeBean.init(vt_productService.listAllMainProduct())"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productUtilService.listMenuMainProduct())"></evaluate>
 		</transition>
 		<transition on="edit-SubProduct">
-			<evaluate expression="vt_productService.editSubProduct(vt_adminproductService.getSelectedSubProduct())"></evaluate>
+			<evaluate expression="vt_productUtilService.editSubProduct(vt_adminproductService.getSelectedSubProduct())"></evaluate>
 			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
-			<evaluate expression="productTreeBean.init(vt_productService.listAllMainProduct())"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productUtilService.listMenuMainProduct())"></evaluate>
 		</transition>
 		<transition on="remove-SubProduct">
-			<evaluate expression="vt_productService.removeSubProduct(vt_adminproductService.getSelectedSubProduct())"></evaluate>
+			<evaluate expression="vt_productUtilService.removeSubProduct(vt_adminproductService.getSelectedSubProduct())"></evaluate>
 			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
-			<evaluate expression="productTreeBean.init(vt_productService.listAllMainProduct())"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productUtilService.listMenuMainProduct())"></evaluate>
+		</transition>
+		<transition on="add-Product">
+			<evaluate expression="vt_adminproductService.addProduct(vt_productUtilService)"></evaluate>
+			<evaluate expression="vt_adminproductService.getProductList()" result="viewScope.products"></evaluate>
+		</transition>
+		<transition on="edit-Product">
+			<evaluate expression="vt_productUtilService.editProduct(vt_adminproductService.getSelectedProduct())"></evaluate>
+			<evaluate expression="vt_adminproductService.getProductList()" result="viewScope.products"></evaluate>
+		</transition>
+		<transition on="remove-Product">
+			<evaluate expression="vt_productUtilService.removeProduct(vt_adminproductService.getSelectedProduct())"></evaluate>
+			<evaluate expression="vt_adminproductService.getProductList()" result="viewScope.products"></evaluate>
 		</transition>
 	</view-state>
 

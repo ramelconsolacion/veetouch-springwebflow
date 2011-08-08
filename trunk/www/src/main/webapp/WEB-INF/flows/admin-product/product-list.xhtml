@@ -7,6 +7,15 @@
 	template="/WEB-INF/layouts/admin-standard.xhtml">
 	
 	<ui:define name="content">
+		<h:form enctype="multipart/form-data">  
+			<p:fileUpload fileUploadListener="#{logoUploadBean.handleFileUpload}"  
+            			mode="advanced"   
+            			update="messages"  
+            			sizeLimit="100000"
+            			allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+            <p:growl id="messages" showDetail="true"/>
+		</h:form>
+	
 		<p:layout style="width:auto;height:800px;">
 			<p:layoutUnit position="left" scrollable="true" collapsible="true" width="250">
 				<h:form id="leftPanel">
@@ -15,11 +24,10 @@
 							<f:facet name="header">
 								Name
 							</f:facet>
-							<p:commandLink update=":centerPanel" action="viewTestCaseList" style="width:100px;" rendered="#{product.class == 'class org.veetouch.model.VtMainproduct'}">
-								<h:outputText value="#{product.name}" style="width:100px" />
-							</p:commandLink>
+							<h:outputText value="#{product.name}" style="width:100px" rendered="#{product.class == 'class org.veetouch.model.VtMainproduct'}"/>
 							<p:commandLink update=":centerPanel" action="viewTestCaseList" style="width:100px;" rendered="#{product.class == 'class org.veetouch.model.VtSubproduct'}">
 								<h:outputText value="#{product.name}" style="width:100px" />
+								<f:setPropertyActionListener value="#{product}" target="#{vt_adminproductService.selectedSubProduct}" />
 							</p:commandLink>
 						</p:column>
 						<p:column style="width:100px;">
@@ -40,11 +48,14 @@
 										<f:setPropertyActionListener value="#{product}" target="#{vt_adminproductService.selectedMainProduct}" />
 									</p:commandLink>
 								</h:panelGrid>
-								<h:panelGrid columns="2" styleClass="panel-grid-toolbox" rendered="#{product.class == 'class org.veetouch.model.VtSubproduct'}">
+								<h:panelGrid columns="3" styleClass="panel-grid-toolbox" rendered="#{product.class == 'class org.veetouch.model.VtSubproduct'}">
 									<p:commandLink update=":editSubProductForm" onclick="editSubProduct_Des.init()" oncomplete="editSubProduct.show()" title="Edit Sub product" styleClass="ui-icon ui-icon-pencil" >
 										<f:setPropertyActionListener value="#{product}" target="#{vt_adminproductService.selectedSubProduct}" />
 									</p:commandLink>
 									<p:commandLink update=":form:leftPanel" oncomplete="removeSubProduct.show()" title="Delete Sub product" styleClass="ui-icon ui-icon-trash" >
+										<f:setPropertyActionListener value="#{product}" target="#{vt_adminproductService.selectedSubProduct}" />
+									</p:commandLink>
+									<p:commandLink title="Add Product" styleClass="ui-icon ui-icon-plusthick" onclick="addProduct_Des.init()" oncomplete="addProduct.show()">
 										<f:setPropertyActionListener value="#{product}" target="#{vt_adminproductService.selectedSubProduct}" />
 									</p:commandLink>
 								</h:panelGrid>
@@ -55,7 +66,7 @@
 			</p:layoutUnit>
 			<p:layoutUnit position="center" scrollable="true" collapsible="true" >
 				<h:form id="centerPanel">
-					<p:dataTable var="main_product" value="#{main_products}"
+					<p:dataTable var="product" value="#{products}"
 		                 paginator="true" rows="15"
 		                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}">
 				        <f:facet name="header">
@@ -65,25 +76,22 @@
 				            <f:facet name="header">  
 				                <h:outputText value="Name" />  
 				            </f:facet>  
-				            <h:outputText value="#{main_product.name}" />
+				            <h:outputText value="#{product.name}" />
 				         </p:column>
 				         <p:column>  
 				            <f:facet name="header">  
-				                <h:outputText value="Sub Products" />  
-				            </f:facet>  
-				            <h:outputText value="#{main_product.name}" />
+				                <h:outputText value="Description" />  
+				            </f:facet>
+				            <h:outputText value="#{product.description}" escape="false"/>
 				         </p:column>
 				         <p:column  style="width:80px;">
-				            <f:facet name="header">
-				            	<div align="center" >
-				                	<p:commandLink title="Add Module" styleClass="ui-icon ui-icon-plusthick" oncomplete="addModule.show()"></p:commandLink>
-				            	</div>
-				            </f:facet>
 				            <div align="center" >
 								<h:panelGrid id="panel" columns="2" styleClass="panel-grid-toolbox" columnClasses="panel-grid-toolbox-column" style="width:auto;">
-									<p:commandLink title="Edit Module" styleClass="ui-icon ui-icon-pencil" >
+									<p:commandLink update=":editProductForm" onclick="editProduct_Des.init()" oncomplete="editProduct.show()" title="Edit Product" styleClass="ui-icon ui-icon-pencil" >
+										<f:setPropertyActionListener value="#{product}" target="#{vt_adminproductService.selectedProduct}" />
 									</p:commandLink>
-									<p:commandLink title="Delete Module" styleClass="ui-icon ui-icon-trash" >
+									<p:commandLink update=":form:centerPanel" oncomplete="removeProduct.show()" title="Delete Product" styleClass="ui-icon ui-icon-trash" >
+										<f:setPropertyActionListener value="#{product}" target="#{vt_adminproductService.selectedProduct}" />
 									</p:commandLink>
 								</h:panelGrid>
 							</div>
@@ -124,6 +132,21 @@
 			</h:form>
 		</p:dialog>
 		
+		<p:dialog  widgetVar="addProduct" header="New Product" modal="true" hideEffect="explode">
+			<h:form>
+				<p:messages />
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Product Name * " for="addProduct_Name"/>
+					<h:inputText id="addProduct_Name" value="#{vt_adminproductService.productName}" required="true"/>
+					<h:outputLabel value="Description " />
+					<p:editor widgetVar="addProduct_Des" lazy="true" value="#{vt_adminproductService.productDes}" width="600" />
+					<p:commandButton type="submit" value="save"   action="add-Product" update="@form,:centerPanel" oncomplete="resultStatus(xhr, status, args,addProduct);"/>
+					<p:commandButton type="reset"  value="cancel" onclick="addProduct.hide()" immediate="true" />
+				
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+		
 		<!-- 
 		**************************************** 
 		Edit Dialog
@@ -155,6 +178,20 @@
 			</h:form>
 		</p:dialog>
 		
+		<p:dialog widgetVar="editProduct" header="Edit Product" modal="true">
+			<h:form id="editProductForm">
+				<p:messages />
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Product Name * "/>
+					<h:inputText value="#{vt_adminproductService.selectedProduct.name}" required="true"/>
+					<h:outputLabel value="Description " />
+					<p:editor widgetVar="editProduct_Des" value="#{vt_adminproductService.selectedProduct.description}" width="600" />
+					<p:commandButton type="submit" value="save"   action="edit-Product" update="@form,:centerPanel" oncomplete="resultStatus(xhr, status, args,editProduct);"/>
+					<p:commandButton type="reset"  value="cancel" onclick="editProduct.hide()" immediate="true" />
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+		
 		<!-- 
 		**************************************** 
 		Delete Dialog
@@ -172,6 +209,13 @@
             <h:form>
         		<p:commandButton value="Yes sure" action="remove-SubProduct" update="@form,:leftPanel" oncomplete="removeSubProduct.hide()"/>  
         		<p:commandButton value="Not yet"  onclick="removeSubProduct.hide()" type="button" />
+    		</h:form>
+    	</p:confirmDialog>
+    	
+    	<p:confirmDialog widgetVar="removeProduct" message="Are you sure?" width="200"  hideEffect="explode" header="Confirm" severity="alert" >
+            <h:form>
+        		<p:commandButton value="Yes sure" action="remove-Product" update="@form,:centerPanel" oncomplete="removeProduct.hide()"/>  
+        		<p:commandButton value="Not yet"  onclick="removeProduct.hide()" type="button" />
     		</h:form>
     	</p:confirmDialog>
 		

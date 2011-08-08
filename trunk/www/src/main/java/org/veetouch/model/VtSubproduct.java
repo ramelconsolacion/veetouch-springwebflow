@@ -2,6 +2,10 @@ package org.veetouch.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import java.util.List;
 
 
@@ -27,7 +31,9 @@ public class VtSubproduct implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to VtProduct
-	@OneToMany(mappedBy="vtSubproduct")
+	//@OneToMany(mappedBy="vtSubproduct")
+	//@OneToMany(cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH}, fetch = FetchType.EAGER,mappedBy="vtSubproduct")
+	@OneToMany(cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH}, fetch = FetchType.LAZY,mappedBy="vtSubproduct")
 	private List<VtProduct> vtProducts;
 
 	//bi-directional many-to-one association to VtMainproduct
