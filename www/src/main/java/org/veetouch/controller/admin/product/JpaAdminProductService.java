@@ -1,5 +1,6 @@
 package org.veetouch.controller.admin.product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,7 +9,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.veetouch.controller.product.ProductService;
+import org.veetouch.controller.product.ProductUtilService;
 import org.veetouch.model.VtMainproduct;
 import org.veetouch.model.VtProduct;
 import org.veetouch.model.VtSubproduct;
@@ -21,6 +22,7 @@ public class JpaAdminProductService implements AdminProductService
 	
 	private VtMainproduct selectedMainProduct;
 	private VtSubproduct selectedSubProduct;
+	private VtProduct selectedProduct;
 	
 	private String productName = "";
 	private String productDes  = "";
@@ -65,6 +67,14 @@ public class JpaAdminProductService implements AdminProductService
 		this.selectedSubProduct = selectedSubProduct;
 	}
 	
+	public VtProduct getSelectedProduct() {
+		return selectedProduct;
+	}
+
+	public void setSelectedProduct(VtProduct selectedProduct) {
+		this.selectedProduct = selectedProduct;
+	}
+	
 	@Override
 	public void clearTempValue() {
 		// TODO Auto-generated method stub
@@ -72,24 +82,11 @@ public class JpaAdminProductService implements AdminProductService
 		this.productDes   = "";
 		this.selectedMainProduct = null;
 		this.selectedSubProduct  = null;
-	}
-	
-	@SuppressWarnings("unchecked")
-	@Transactional(readOnly = true)
-	public List<VtMainproduct> listAllMainProduct() {
-		List<VtMainproduct> mainproductList = em.createQuery("from VtMainproduct").getResultList();
-		return mainproductList;
-	}
-
-	@SuppressWarnings("unchecked")
-	@Transactional(readOnly = true)
-	public List<VtProduct> listAllProduct() {
-		List<VtProduct> productList = em.createQuery("from VtProduct").getResultList();
-		return productList;
+		this.selectedProduct = null;
 	}
 	
 	@Transactional
-	public boolean addMainProduct(ProductService product_service)
+	public boolean addMainProduct(ProductUtilService product_service)
 	{
 		VtMainproduct mainProduct = new VtMainproduct();
 		mainProduct.setName(this.getProductName());
@@ -97,12 +94,32 @@ public class JpaAdminProductService implements AdminProductService
 	}
 	
 	@Transactional
-	public boolean addSubProduct(ProductService product_service)
+	public boolean addSubProduct(ProductUtilService product_service)
 	{
 		VtSubproduct subProduct = new VtSubproduct();
 		subProduct.setName(this.getProductName());
 		subProduct.setDescription(this.getProductDes());
 		subProduct.setVtMainproduct(this.getSelectedMainProduct());
 		return product_service.addSubProduct(subProduct);
+	}
+	
+	@Transactional
+	public boolean addProduct(ProductUtilService product_service)
+	{
+		VtProduct product = new VtProduct();
+		product.setName(this.getProductName());
+		product.setDescription(this.getProductDes());
+		product.setVtSubproduct(this.getSelectedSubProduct());
+		return product_service.addProduct(product);
+	}
+	
+	@Transactional
+	public List<VtProduct> getProductList()
+	{
+		if(this.selectedSubProduct == null)
+		{
+			return new ArrayList<VtProduct>();
+		}
+		return this.em.createQuery("SELECT p FROM VtProduct p where p.vtSubproduct.id="+this.selectedSubProduct.getId()).getResultList();
 	}
 }

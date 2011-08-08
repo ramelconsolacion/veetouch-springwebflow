@@ -45,6 +45,24 @@
 					<h:form prependId="false" style="padding-top:15px;">
 		                <table width="100%" cellspacing="0" cellpadding="0" border="0" style="background: none; padding: 0px;">
 		                    <tbody>
+		                    	<c:forEach items="#{products}" var="product">
+		                    		<tr>
+		                    			<td style="width: 200px;text-align:center;">
+			                                <p:commandLink>
+			                                    <p:graphicImage value="/images/temp/ipad2.jpg" />
+			                                </p:commandLink>
+			                            </td>
+			                            <td style="vertical-align: top;">
+			                                <h:outputText styleClass="sub-information-header" value="#{product.name}"/>
+			                                <h:outputText value="#{product.description}" escape="false"/>
+			                                <p:spacer width="5" height="0" />
+			                                <h:commandLink styleClass="information-link" action="viewProductDetail">
+			                                    <h:outputText value="more..." />
+			                                    <f:setPropertyActionListener target="#{flowScope.product}" value="#{product}" />
+			                                </h:commandLink>
+			                            </td>
+		                    		</tr>
+		                    	</c:forEach>
 		                        <tr>
 		                            <td style="width: 200px;text-align:center;">
 		                                <p:commandLink>
