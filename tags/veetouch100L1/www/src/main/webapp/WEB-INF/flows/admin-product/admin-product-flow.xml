@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+	parent="parent-flow">
+	
+	<var name="productTreeBean" class="org.veetouch.view.product.ProductTreeBean" />
+	<var name="fileUploadController" class="org.veetouch.view.product.FileUploadController" />
+	
+	<on-start>
+		<evaluate expression="productTreeBean.init(vt_productUtilService.listMenuMainProduct())"></evaluate>
+	</on-start>
+	
+	<view-state id="product-list">
+		<transition on="viewTestCaseList">
+			<evaluate expression="vt_adminproductService.getProductList()" result="viewScope.products"></evaluate>
+		</transition>
+		<transition on="add-MainProduct">
+			<evaluate expression="vt_adminproductService.addMainProduct(vt_productUtilService)"></evaluate>
+			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productUtilService.listMenuMainProduct())"></evaluate>
+		</transition>
+		<transition on="edit-MainProduct">
+			<evaluate expression="vt_productUtilService.editMainProduct(vt_adminproductService.getSelectedMainProduct())"></evaluate>
+			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productUtilService.listMenuMainProduct())"></evaluate>
+		</transition>
+		<transition on="remove-MainProduct">
+			<evaluate expression="vt_productUtilService.removeMainProduct(vt_adminproductService.getSelectedMainProduct())"></evaluate>
+			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productUtilService.listMenuMainProduct())"></evaluate>
+		</transition>
+		<transition on="add-SubProduct">
+			<evaluate expression="vt_adminproductService.addSubProduct(vt_productUtilService)"></evaluate>
+			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productUtilService.listMenuMainProduct())"></evaluate>
+		</transition>
+		<transition on="edit-SubProduct">
+			<evaluate expression="vt_productUtilService.editSubProduct(vt_adminproductService.getSelectedSubProduct())"></evaluate>
+			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productUtilService.listMenuMainProduct())"></evaluate>
+		</transition>
+		<transition on="remove-SubProduct">
+			<evaluate expression="vt_productUtilService.removeSubProduct(vt_adminproductService.getSelectedSubProduct())"></evaluate>
+			<evaluate expression="vt_adminproductService.clearTempValue()"></evaluate>
+			<evaluate expression="productTreeBean.init(vt_productUtilService.listMenuMainProduct())"></evaluate>
+		</transition>
+		<transition on="add-Product">
+			<evaluate expression="vt_adminproductService.addProduct(vt_productUtilService,fileUploadController.getUploadedFile())"></evaluate>
+			<evaluate expression="vt_adminproductService.getProductList()" result="viewScope.products"></evaluate>
+		</transition>
+		<transition on="edit-Product">
+			<evaluate expression="vt_productUtilService.editProduct(vt_adminproductService.getSelectedProduct())"></evaluate>
+			<evaluate expression="vt_adminproductService.getProductList()" result="viewScope.products"></evaluate>
+		</transition>
+		<transition on="remove-Product">
+			<evaluate expression="vt_productUtilService.removeProduct(vt_adminproductService.getSelectedProduct())"></evaluate>
+			<evaluate expression="vt_adminproductService.getProductList()" result="viewScope.products"></evaluate>
+		</transition>
+		
+		<transition on="upload">
+			<evaluate expression="fileUploadController.verifyUploadFile()" />
+		</transition>
+	</view-state>
+	
+	<view-state id="file-test">
+		<transition on="add-Product">
+			<evaluate expression="vt_adminproductService.addProduct(vt_productUtilService,fileUploadController.getUploadedFile())"></evaluate>
+		</transition>
+		<transition on="upload">
+			<evaluate expression="fileUploadController.verifyUploadFile()" />
+		</transition>
+	</view-state>
+	
+</flow>

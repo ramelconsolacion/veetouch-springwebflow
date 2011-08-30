@@ -1,0 +1,112 @@
+﻿<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+	Functional
+	Use for display
+		- Overall system can do
+		- New Product server
+		- New Product client
+		- New Product client_plugin
+		- New Product server_plugin
+ -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:c="http://java.sun.com/jsp/jstl/core"
+	  			xmlns:p="http://primefaces.prime.com.tr/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+	
+	<ui:define name="content">		
+		<p:breadCrumb id="breadcrumb">
+			<p:menuitem value="Home" url="product" />
+			<p:menuitem value="Overall Product" url="product" />
+		</p:breadCrumb>
+		<h:panelGroup layout="block" style="padding-top: 10px;overflow:hidden;">
+			<h:panelGroup layout="block" style="vertical-align: top;float:left;padding-right: 10px;">
+				<h:form>
+					<p:menu>
+						<c:forEach items="#{main_products}" var="mp">
+							<p:submenu label="#{mp.name}">
+								<c:forEach items="#{mp.vtSubproducts}" var="sp">
+									<p:menuitem>
+										<h:commandLink  value="#{sp.name}" action="viewSubProduct" >
+											<f:setPropertyActionListener target="#{flowScope.subProduct}" value="#{sp}" />
+										</h:commandLink>
+							    	</p:menuitem>
+						    	</c:forEach>
+							</p:submenu>
+						</c:forEach>
+					</p:menu>
+				</h:form>
+			</h:panelGroup>
+			<h:panelGroup layout="block" style="display:table-cell;">
+				<h:form prependId="false">  
+                <p:fieldset legend="Hot Products" toggleable="true" toggleSpeed="500">  
+                    <h:panelGrid columns="4" cellpadding="10" styleClass="product-table">  
+                        <h:panelGrid columns="1">
+                            <p:commandLink>
+                                <p:graphicImage value="/images/temp/ipad2.jpg" />
+                                <br />
+                                <h:outputText value="Ipad 2"/>
+                            </p:commandLink>
+                        </h:panelGrid>
+                        <h:panelGrid columns="1">
+                            <p:commandLink>
+                                <p:graphicImage value="/images/temp/ipodtouch.jpg" />
+                                <br />
+                                <h:outputText value="Ipod touch"/>
+                            </p:commandLink>
+                        </h:panelGrid>
+                        <h:panelGrid columns="1">
+                            <p:commandLink>
+                                <p:graphicImage value="/images/temp/imac.jpg" />
+                                <br />
+                                <h:outputText value="iMac"/>
+                            </p:commandLink>
+                        </h:panelGrid>
+                        <h:panelGrid columns="1">
+                            <p:commandLink>
+                                <p:graphicImage value="/images/temp/macbookair.jpg" />
+                                <br />
+                                <h:outputText value="Macbook Air"/>
+                            </p:commandLink>
+                        </h:panelGrid>
+                    </h:panelGrid>
+                </p:fieldset>
+                </h:form>
+                
+				<p:tabView effect="opacity" effectDuration="normal">
+				    <p:tab title="Why VeeTouch">
+				        <h:outputText value="ทำไมต้องใช้ ระบบจักการการขาย กับเรา" />
+				        <br />
+						<br />
+						<ul id="j_idt44_list" class="ui-datalist-data ui-corner-all" type="disc">
+				        	<li class="ui-datalist-item">สร้างรายได้เพิ่มให้กับร้านค้าผ่านทาง โฆษณา และ ดึงดูลูกค้ากลุ่มวัยรุ่น</li>
+							<li class="ui-datalist-item">เพิ่มความโดดเด่นให้กับร้านค้าด้วยระบบ โต๊ะ Multi touch</li>
+							<li class="ui-datalist-item">บริการ Upgrade Software version ล่าสุดให้ฟรีตลอดการใช้งาน</li>
+							<li class="ui-datalist-item">บริการทุกวัน โทรเข้ามาได้ 24 ชั่วโมง ไม่เว้นวันหยุด Hotline 08-4673-0268, 08-0933-1434 </li>
+							<li class="ui-datalist-item">แก้ปัญหาการใช้งานให้ฟรีไม่เสียค่าใช้จ่าย</li>
+				        </ul>
+				    </p:tab>
+					<!--
+					<p:tab title="คำถามต่างๆ">
+				        <h:panelGrid columns="2" cellpadding="10">
+				            <p:graphicImage value="/images/godfather/godfather2.jpg" />
+				            <h:outputText value="Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, The_Godfather, parallels the young Vito Corleone's rise with his son Michael's spiritual fall, deepening The_Godfather's depiction of the dark side of the American dream.  
+				            In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy,  
+				            killing the local Black Hand Fanucci after he demands his customary cut of the tyro's business. With Fanucci gone, Vito's communal stature grows."/>  
+				        </h:panelGrid>
+				    </p:tab>
+				    <p:tab title="การบริการลูกค้า">
+				        <h:panelGrid columns="2" cellpadding="10">
+				            <p:graphicImage value="/images/godfather/godfather3.jpg" />  
+				            <h:outputText value="After a break of more than 15 years, director Francis Ford Coppola and writer Mario Puzo returned to the well for this third and final story of the fictional Corleone crime family.  
+				                Two decades have passed, and crime kingpin Michael Corleone, now divorced from his wife Kay has nearly succeeded in keeping his promise that his family would one day be completely legitimate."/>  
+				        </h:panelGrid>
+				    </p:tab>
+					-->
+				</p:tabView>
+			</h:panelGroup>
+		</h:panelGroup>
+	</ui:define>
+</ui:composition>

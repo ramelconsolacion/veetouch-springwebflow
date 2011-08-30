@@ -1,0 +1,67 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+	Functional
+	Use for display
+		- Product logo
+		- Product name
+		- Product description
+		- Product SS
+		- Customer Review
+ -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:c="http://java.sun.com/jsp/jstl/core"
+	  			xmlns:p="http://primefaces.prime.com.tr/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+	
+	<ui:define name="content">
+		<p:breadCrumb id="breadcrumb">
+			<p:menuitem value="Home" url="product" />
+			<p:menuitem value="Overall Product" url="product" />
+		</p:breadCrumb>
+		<h:panelGroup layout="block" style="padding-top: 10px;overflow:hidden;">
+			<h:panelGroup layout="block" style="vertical-align: top;float:left;padding-right: 10px;">
+				<h:form>
+					<p:menu>
+						<c:forEach items="#{main_products}" var="mp">
+							<p:submenu label="#{mp.name}">
+								<c:forEach items="#{mp.vtSubproducts}" var="sp">
+									<p:menuitem>
+										<h:commandLink  value="#{sp.name}" action="viewSubProduct" >
+											<f:setPropertyActionListener target="#{flowScope.subProduct}" value="#{sp}" />
+										</h:commandLink>
+							    	</p:menuitem>
+						    	</c:forEach>
+							</p:submenu>
+						</c:forEach>
+					</p:menu>
+				</h:form>
+			</h:panelGroup>
+			<h:panelGroup layout="block" style="display:table-cell;width:777px;">
+				<p:panel style="width:100%;" styleClass="news-panel-content">
+					<h:outputText value="#{product.name}" styleClass="information-header" />
+					<h:panelGrid columns="2" cellpadding="10" columnClasses="row-image,row-content" style="padding-bottom:20px;"> 
+						<p:lightBox>  
+					    	<p:graphicImage value="/images/godfather/godfather1.jpg" /> 
+						</p:lightBox>
+			        	<h:outputText value="#{product.description}" escape="false"/>
+					</h:panelGrid>
+					 <h:panelGrid columns="1" cellpadding="0" columnClasses="row-imageSwitch" style="padding-bottom:10px;"> 
+						 <h:panelGroup layout="block">
+						 	<p:commandButton type="button" onclick="switcher.previous();" image="ui-icon ui-icon-circle-triangle-w"/>  
+						 	<p:commandButton type="button" onclick="switcher.next();" image="ui-icon ui-icon-circle-triangle-e"/>  
+						 </h:panelGroup>
+						 <p:imageSwitch effect="fade" widgetVar="switcher" slideshowAuto="false">  
+						    <ui:repeat value="#{galleriaBean.images}" var="image">  
+						        <p:graphicImage value="/images/galleria/#{image}" />  
+						    </ui:repeat>
+						 </p:imageSwitch>
+					 </h:panelGrid>
+				</p:panel>
+			</h:panelGroup>
+		</h:panelGroup>
+	</ui:define>
+	
+</ui:composition>

@@ -1,0 +1,320 @@
+/*-------------------------------------------
+Default
+    Blue color is 3990BD
+    Green color is 6EAC2C
+-------------------------------------------*/
+body {
+	background-color: #EEEFF0;
+}
+
+.content {
+	width: 950px;
+	margin: auto;
+}
+
+.center-div {
+	display: block;
+	margin: auto;
+	text-align:center;
+}
+.center-div div {
+    margin: auto;
+}
+
+#logo {
+    left: -30px;
+    position: absolute;
+    text-align: center;
+    top: 28px;
+}
+
+a.logo-icon {
+	background-image: url("../images/templates/logo/header.png");
+	background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    display: block;
+    height: 130px;
+    width: 200px;	
+}
+
+/*-------------------------------------------
+Header 
+
+-------------------------------------------*/
+/* air theme */
+#page-header {
+	background: url("../images/templates/header/bg.png") repeat-x scroll 50% 0 #12719E;
+}
+
+.page-header-img {
+	background: url("../images/templates/header/glitter_blue.jpg") no-repeat scroll 50% 0 transparent;
+	background-position: 50% 0;
+	min-height: 180px;
+}
+
+#header {
+    clear: both;
+    height: 140px;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0;
+    position: relative;
+    z-index: 10;
+}
+
+#headerbar {
+	background: url("../images/templates/header/headerbar_bg.png") repeat-x scroll 50% 100% transparent;
+	background-image: url("../images/templates/header/headerbar_glass.png");
+	background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-origin: padding-box;
+    background-position: 50% 100%;
+    background-repeat: repeat-x;
+    background-size: auto auto;
+    min-height: 145px;
+}
+
+#headermodules {
+	padding: 15px;
+	color: #FFFFFF;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+/*-------------------------------------------
+p:menu
+
+-------------------------------------------*/
+.wijmo-wijmenu .ui-widget-header h3 {
+	font-weight: bold;
+}
+
+/*-------------------------------------------
+p:tabView
+
+-------------------------------------------
+li .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active  {
+    background: #FFFFFF;
+    border: 1px solid #3990BD;
+    color: #3990BD;
+}
+
+
+li.ui-tabs-selected a, li.ui-tabs-selected a:link, li.ui-tabs-selected a:visited {
+    color: #3990BD;
+    text-decoration: none;
+}
+*/
+
+/*-------------------------------------------
+h:panelGrid
+
+---------------------------------------------*/
+.panel-grid-toolbox {
+	border-right-color:inherit;
+	border-right-width: 1px;
+	padding:0px 10px;
+	text-align: center;
+}
+
+/*-------------------------------------------
+Panel
+
+-------------------------------------------*/
+.ui-layout {
+    border: 0px solid #A8A8A8;
+}
+
+.ui-layout-bd {
+	border: 0px solid #A8A8A8;
+}
+
+.ui-panel {
+	border-radius: 8px 8px 4px 4px;
+	padding: 0em;
+}
+
+/*-- News 
+		- Background = Dark Grey 
+		- Headline   = White bold
+		- Detail	 = White 
+--*/
+.news-panel {
+	border-radius: 8px 8px 8px 8px;
+	padding: 0em;
+}
+.news-panel-content {
+	background-color: #FFFFFF;
+}
+
+.news-panel-blue {
+	border: 0 solid #36363B;
+	border-radius: 8px 8px 8px 8px;
+	background: url("../images/templates/box/bg-service-box-top-blue.gif") no-repeat scroll 0 0 #36363B;
+	width: 460px;
+    height: 170px;
+	padding-top: 10px;
+	overflow: hidden;
+}
+.news-panel-green {
+	border: 0 solid #36363B;
+	border-radius: 8px 8px 8px 8px;
+	background: url("../images/templates/box/bg-service-box-top-green.gif") no-repeat scroll 0 0 #36363B;
+	width: 460px;
+    height: 170px;
+	padding-top: 10px;
+	overflow: hidden;
+}
+.news-panel-header {
+	font-weight: normal;
+	color: #3990BD;
+	font-size: 1.8em;
+	display:block;
+}
+.news-panel-text {
+	color: #FFFFFF;
+	display: block;
+	height: 80px;
+	overflow: hidden;
+}
+.news-panel-link {
+	margin: 22px 0 0;
+	margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+/*-- Information 
+		- Background = Soft Blue
+		- Headline   = Black bold
+		- Detail	 = grey
+--*/
+.information-panel {
+	background: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)) repeat scroll 0 0 #f4f4f4;
+	border-radius: 8px 8px 8px 8px;
+	padding: 0em;
+}
+
+.information-header {
+	font-weight: normal;
+	color: #3990BD;
+	font-size: 1.8em;
+	display:block;
+    padding-bottom: 10px;
+}
+
+.sub-information-header {
+	font-weight: normal;
+	color: #3990BD;
+	font-size: 1.4em;
+	display:block;
+    padding-bottom: 5px;
+}
+
+a.information-link {
+    color: #6EAC2C;
+}
+
+a.information-link:hover, a.information-link:focus {
+    color: #3990BD;
+}
+
+/*-- Notified Information
+		- Background = Soft Orange
+		- Headline   = White bold
+		- Detail	 = white
+--*/
+.notice-panel {
+	background: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)) repeat scroll 0 0 #8896af;
+	border-radius: 8px 8px 8px 8px;
+	padding: 0em;
+}
+
+/*-------------------------------------------
+Table Content
+
+-------------------------------------------*/
+.row-content {
+	vertical-align:top;
+}
+
+.row-image {
+	vertical-align:middle;
+}
+
+.row-imageSwitch {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+/*-------------------------------------------
+Footer
+
+-------------------------------------------*/
+#page-footer {
+	background: url("../images/templates/footer/bg.png") repeat-x scroll 50% 0 transparent;
+	min-height: 40px;
+}
+
+#footer {
+	clear: both;
+    color: #FFFFFF;
+    font-size: 10px;
+    padding: 30px 0 20px;
+    position: relative;
+    text-align: center;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.footer-menu {
+    display: block;
+    line-height: 14px;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    padding-left: 30px;
+}
+
+.footer-menu li {
+	display: inline-block;
+    margin: 0;
+    padding: 0;
+    line-height: 14px;
+}
+
+.footer-menu-item {
+	color: #FFFFFF;
+	text-decoration: none;
+	background: url("../images/templates/etc/seperator.png") no-repeat scroll 0 50% transparent;
+	overflow: hidden;
+    padding: 0 15px 0 14px;
+}
+
+a.footer-menu-item:focus, a.footer-menu-item:hover {color:#000000;}
+
+/*-------------------------------------------
+ETC
+
+-------------------------------------------*/
+.wrapper {
+	width: 950px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+}
+
+.product-table  td {
+    text-align: center;
+    list-style: none outside none;
+    vertical-align: bottom;
+}

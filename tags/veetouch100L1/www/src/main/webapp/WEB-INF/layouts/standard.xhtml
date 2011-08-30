@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+<f:view contentType="text/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>VeeTouch Software</title>
+	<link rel="shortcut icon" href="${request.contextPath}/images/favicon.ico" />
+	<link rel="stylesheet" href="${request.contextPath}/styles/blueprint/screen.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="${request.contextPath}/styles/blueprint/print.css" type="text/css" media="print" />
+	<link rel="stylesheet" href="${request.contextPath}/styles/veetouch.css" type="text/css" media="screen" />
+	
+	<link rel="stylesheet" href="${request.contextPath}/styles/menus.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="${request.contextPath}/js/mootools/mootools1_12.js" />
+	<script type="text/javascript" src="${request.contextPath}/js/mootools/warp.js" />
+	<!--[if lt IE 8]>
+		<link rel="stylesheet" href="${request.servletPath}/styles/blueprint/ie.css" type="text/css" media="screen, projection" />
+	<![endif]-->
+	<ui:insert name="headIncludes"/>
+	
+	<script type="text/javascript">
+		Warp.Settings = {"color":"lilac","itemColor":null};
+		
+		window.addEvent('domready', function() {
+			var current_page = "Menu-#{menuNavigator.page}"
+			$(current_page).addClass('active');
+		});
+	</script>
+</h:head>
+<h:body>
+<div id="page-header">
+	<div class="page-header-img">
+		<div id="headerbar">
+			<div class="wrapper">
+				<div id="header">
+					<!-- Menu bar -->
+					<div id="logo">
+						<a class="logo-icon correct-png" title="Home" href="home"></a>
+					</div>
+					<div id="menu">
+						<ul class="menu menu-dropdown">
+							<li id="Menu-HOME" class="level1 item1">
+								<a class="level1 item1" href="home">
+									<span class="bg">HOME</span>
+								</a>
+							</li>
+							<li id="Menu-ABOUT" class="level1 item2">
+								<a class="level1 item2" href="about">
+									<span class="bg">ABOUT</span>
+								</a>
+							</li>
+							<li id="Menu-PRODUCT" class="level1 item3">
+								<a class="level1 item3" href="product">
+									<span class="bg">PRODUCT</span>
+								</a>
+							</li>
+							<li id="Menu-SERVICE" class="level1 item4">
+								<a class="level1 item4" href="service">
+									<span class="bg">SERVICE</span>
+								</a>
+							</li>
+							<li id="Menu-CONTACT" class="level1 item5">
+								<a class="level1 item5" href="contact">
+									<span class="bg">CONTACT</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					
+				</div>
+
+			</div>
+		</div>
+		<div id="headermodules">
+			<ui:insert name="headermodules"/>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="content" style="padding-top: 18px;padding-bottom: 18px;">
+		<ui:insert name="content"/>
+	</div>
+</div>
+<div id="page-footer">
+	<div id="footer">
+		<ul class="footer-menu">
+			<li>
+				<a href="about" class="footer-menu-item">
+					<span>About</span>
+				</a>
+			</li>
+			<li>
+				<a href="contact" class="footer-menu-item">
+					<span>Contact</span>
+				</a>
+			</li>
+			<li>
+				<a href="service" class="footer-menu-item">
+					<span>Service</span>
+				</a>
+			</li>
+		</ul>
+		Copyright &copy; 2011 VeeTouch Software. All rights reserved 
+	</div> <!-- end footer -->
+</div>
+</h:body>
+</f:view>
+</html>

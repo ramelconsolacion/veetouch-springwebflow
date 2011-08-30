@@ -1,0 +1,77 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+	Functional
+	Use for display Contact information
+	
+ -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.prime.com.tr/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+	
+	<ui:define name="content">
+        <p:panel style="width:100%;" styleClass="news-panel-content">
+            <f:facet name="header" styleClass="news-panel-header" headerClass="news-panel-header">
+                <h:outputText value="Corporate Info" />
+            </f:facet>
+            <h:panelGrid columns="3" cellpadding="10" id="contactinfo">
+                <h:panelGroup layout="block" style="display:table-cell;">
+                    <h:outputText value="VeeTouch Software" />
+                    <br />
+                    <br />
+                    <h:outputText value="425/205 ซอยสาธุ57ฯ   ถ.สาธุประดิษฐ์" />
+                    <br />
+                    <h:outputText value="แขวงบางโพงพาง  เขตยานนาวา" />
+                    <br />
+                    <h:outputText value="กทม. 10120" />
+                    <br />
+                    <br />
+                    <h:outputText value="425/205 Soi Sathu57 Sathupradit Rd." />
+                    <br />
+                    <h:outputText value="Bangpongpang, Yanava" />
+                    <br />
+                    <h:outputText value="BKK Thailand 10120" />
+                    <br />
+                    <br />
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="background: none; padding: 0px;">
+                        <tbody>
+                            <tr><td style="width: 50px;">Tel</td><td>: 08-0933-1434 (คุณ พลอย)</td></tr>
+                            <tr><td style="width: 50px;">Tel</td><td>: 08-4673-0268 (คุณ อาร์ท)</td></tr>
+                            <tr><td>E-mail&nbsp;</td><td>: <a href="mailto:atthaboon.s@gmail.com">atthaboon.s@gmail.com</a></td></tr>
+                        	<tr><td style="width: 50px;">เวลา</td><td>: 08:00 – 24:00 ทุกวัน</td></tr>
+                        </tbody>
+                    </table>
+                </h:panelGroup>
+                <h:panelGroup layout="block" style="display:table-cell;width:1px;">
+                    <p:separator style="width:1px;height:250px;" />
+                </h:panelGroup>
+                <h:panelGroup layout="block" style="display: block;text-align: center;">
+                    <p:graphicImage value="/images/map/map.png" />
+                </h:panelGroup>
+            </h:panelGrid>
+            <h:outputLink id="lnk" value="#" style="display: block;text-align: left;padding-left:10px;padding-bottom:1.4em;">
+                <p:printer target="contactinfo" />
+                <p:graphicImage value="/images/templates/etc/print.png" />
+            </h:outputLink>
+            <p:fieldset legend="ติดต่อเจ้าหน้าที่โดยตรง">
+	            <table width="100%" cellspacing="0" cellpadding="0" border="0" style="background: none; padding: 0px;">
+	                <tbody>
+	                    <tr><th style="padding:0px;width: 50px;" colspan="2">สอบถามสินค้าและบริการ</th></tr>
+	                    <tr><td style="padding:0px;width: 50px;">Tel</td><td style="padding:0px;">: 08-0933-1434 (คุณ พลอย)</td></tr>
+	                    <tr><td style="padding:0px;">E-mail&nbsp;</td><td style="padding:0px;">: <a href="mailto:atthaboon.s@gmail.com">penploy.s@gmail.com</a></td></tr>
+	                    <tr><td></td></tr>
+	                    <tr><th style="padding:0px;width: 50px;" colspan="2">สอบถาม/แจ้งปัญหาการใช้งาน</th></tr>
+	                    <tr><td style="padding:0px;width: 50px;">Tel</td><td style="padding:0px;">: 08-4673-0268 (คุณ อาร์ท)</td></tr>
+	                    <tr><td style="padding:0px;">E-mail&nbsp;</td><td style="padding:0px;">: <a href="mailto:atthaboon.s@gmail.com">atthaboon.s@gmail.com</a></td></tr>
+	                    <tr><td></td></tr>
+	                    <tr><th style="padding:0px;width: 50px;" colspan="2">ชำระค่าสินค้า/บริการ</th></tr>
+	                    <tr><td style="padding:0px;width: 50px;">Tel</td><td style="padding:0px;">: 08-0933-1434 (คุณ พลอย)</td></tr>
+	                    <tr><td style="padding:0px;">E-mail&nbsp;</td><td style="padding:0px;">: <a href="mailto:penploy.s@gmail.com">penploy.s@gmail.com</a></td></tr>
+	                </tbody>
+	            </table>
+        	</p:fieldset>
+        </p:panel>
+	</ui:define>
+</ui:composition>

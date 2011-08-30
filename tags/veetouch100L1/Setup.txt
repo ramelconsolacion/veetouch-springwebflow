@@ -1,0 +1,28 @@
+1. Install apache tomcat 6
+2. Install Spring source tool suite
+3. Install Mysql
+4. Install Mysql workbench
+
+Create Database
+1. username: veetouch_admin
+2. password: veetouch
+3. db name:	 veetouch_veetouch
+4. port: 3306
+5. open Data modeling -> Database -> Foward engineering --> deploy to veetouch_veetouch
+
+Import project
+1. open sts 
+2. import maven project
+3. Remove sping nature
+	right click at project -> Spring Tools --> Remove spring nature
+
+4. Add JPA plugin
+	right click at project -> properties   --> Project Facets  --> select JPA
+5. Add JPA view
+	click at + view button -> other --> JPA
+6. Delete folder src/java/META-INF
+7. right click at src/main/resources/META-INF/persistence.xml --> add to build path
+(This step force JPA to change file persistence to this file)
+7. Add 
+	connection to veetouch db
+8. Sync JPA

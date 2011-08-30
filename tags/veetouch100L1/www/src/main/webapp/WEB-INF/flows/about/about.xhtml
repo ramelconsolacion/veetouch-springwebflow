@@ -1,0 +1,62 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+	Functional
+	Use for About veetouch do and next to do
+	
+ -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.prime.com.tr/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+
+	<ui:define name="content">
+		<p:accordionPanel effect="bounceslide" autoHeight="false">  
+            <p:tab title="ประวัติความเป็นมา">
+                <h:panelGrid columns="2" cellpadding="10">
+                    <p:graphicImage value="/images/about/commitment.jpg" />
+                    <h:panelGroup layout="block" style="display:table-cell;">
+                    	<h:outputText value="VeeTouch Software ก่อตั้งขึ้นโดย นายอรรถบูรพ์ สานุตร์ และ นางสาว เพ็ญพลอย ศรีบำรุงวงศ์ " />
+                    	<br />
+						<br />
+                    	<h:outputText value="มีแนวคิดว่า จะนำระบบ VeeTouch เข้ามาร่วมใช้กับกลุ่มธุรกิจค้าปลีก เช่น ร้านกาแฟ ร้านเบเกอรี่ และ ร้านไอศกรีม เป็นต้น  " />
+						<br />
+						<h:outputText value="โดยมองเห็นถึงการเปลี่ยนแปลงพฤติกรรมของลูกค้าที่มาร้านอาหารและความก้าวหน้าของเทคโนโลยี" />
+						<br />
+						<h:outputText value="กล่าวคือ จากอดีตเมนูอาหารนั้นจะเป็นเมนูกระดาษ ต่อมาได้มีบางร้านนำเอา Palm มาใช้แทน แต่ต้องเรียกพนักงานมาจดรับรายการสั่งอาหาร" />
+						<br />
+						<h:outputText value="อีกทั้งหากในร้านมีลูกค้ารายอื่นเยอะมาก  ทำให้ต้องรอพนักงานนาน และบางร้านมีการนำเอา LCD Touch screen มาติดไว้ข้างโต๊ะ" />
+						<br />
+						<h:outputText value="เพื่อให้ลูกค้าสั่งอาหารได้สะดวก แต่ส่งผลให้พื้นที่ของโต๊ะอาหารมีพื้นที่วางอาหารลดลง" />
+						<br />
+						<br />
+						<h:outputText value="จากปัญหาทั้งหมดเหล่านี้ จึงได้คิดค้น  ระบบ VeeTouch โต๊ะสั่งอาหารระบบสัมผัส และระบบจัดการการขายหรือ Point of Sale (POS)  เพื่อแก้ไขปัญหาต่างๆที่เกิดขึ้นและดึงดูดลูกค้าด้วยเทคโนโลยีใหม่ โดยมีเป้าหมายเพิ่มยอดขายให้กับร้านค้าซึ่งเป็นลูกค้าของเรา "/>
+                	</h:panelGroup>
+                </h:panelGrid>  
+            </p:tab>  
+            <p:tab title="วิสัยทัศน์ ">  
+                <h:panelGrid columns="2" cellpadding="10">  
+                    <p:graphicImage value="/images/about/vision.png" />
+                    <h:panelGroup layout="block" style="display:table-cell;">
+                    	<h:outputText value="เป็นผู้นำในการให้บริการระบบจัดการการขายและโต๊ะระบบสัมผัสที่ทันสมัยที่สุดในประเทศไทยออกแบบให้ใช้ในร้านค้าปลีก" />
+                    	<br />
+                    	<h:outputText value="มุ่งเน้นคุณภาพระดับสากลและการบริการที่เป็นเลิศแก่ลูกค้า" />  
+                	</h:panelGroup>
+                </h:panelGrid>
+            </p:tab>  
+            <p:tab title="พันธกิจ">
+                <h:panelGrid columns="2" cellpadding="10">  
+                    <p:graphicImage value="/images/about/mission.jpg" />
+                    <ul id="j_idt44_list" class="ui-datalist-data ui-corner-all" type="disc">
+			        	<li class="ui-datalist-item">ยินดีเป็นที่ปรึกษาให้ข้อมูลกับร้านอาหารหรือร้านกาแฟ ที่ต้องการเพิ่มยอดขาย ด้วยโต๊ะ VeeTouch</li>
+						<li class="ui-datalist-item">สร้างรายได้เพิ่มให้กับร้านค้าผ่านทาง  โฆษณา และ ดึงดูลูกค้ากลุ่มวัยรุ่น</li>
+						<li class="ui-datalist-item">พัฒนาระบบโต๊ะและ Server POS เพิ่มเติมให้ตอบรับกับความต้องการของลูกค้ามากขึ้น</li>
+						<li class="ui-datalist-item">พัฒนาระบบบริการ และคุณภาพพนักงาน เพื่อแก้ไขปัญหาให้ลูกค้าอย่างเป็นขั้นตอน</li>
+						<li class="ui-datalist-item">ค้นคว้าระบบใหม่ๆเพิ่มเติมเพื่อรองรับความต้องการใหม่ๆของลูกค้า หรือเพื่อขยายตลาดสินค้า</li>
+			        </ul>
+                </h:panelGrid>  
+            </p:tab>  
+        </p:accordionPanel>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webflow-project-description>
+	<version>1</version>
+	<pluginVersion><![CDATA[2.6.0.201103160035-RELEASE]]></pluginVersion>
+	<configs>
+		<config>
+			<file>src/main/webapp/WEB-INF/flows/about/about-flow.xml</file>
+			<name><![CDATA[about-flow]]></name>
+		</config>
+		<config>
+			<file>src/main/webapp/WEB-INF/flows/contact/contact-flow.xml</file>
+			<name><![CDATA[contact-flow]]></name>
+		</config>
+		<config>
+			<file>src/main/webapp/WEB-INF/flows/product/product-flow.xml</file>
+			<name><![CDATA[global-flow]]></name>
+		</config>
+		<config>
+			<file>src/main/webapp/WEB-INF/flows/home/home-flow.xml</file>
+			<name><![CDATA[home-flow]]></name>
+		</config>
+	</configs>
+</webflow-project-description>

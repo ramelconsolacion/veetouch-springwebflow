@@ -1,0 +1,76 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+	Functional
+	Use for show our service and solution
+	
+ -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.prime.com.tr/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+
+	<ui:define name="content">
+        <p:breadCrumb id="breadcrumb">
+			<p:menuitem value="Home" url="service" />
+			<p:menuitem value="Overall Service" url="service" />
+		</p:breadCrumb>
+        <p:separator style="width:0px;height:0px;visibility:hidden;" /> 
+		<p:panel>
+            <h:outputText value="Service Information" styleClass="information-header" />
+            <h:outputText value="VeeTouch Software เราให้บริการโดยยึดหลักความชัดเจน โปร่งใส ตรงไปตรงมาลูกค้าที่ใช้บริการกับเรา จึงไม่ต้องกังวลในเรื่อง แก้ไขปัญหา, อัพเดท version ของ Software โดย VeeTouch Software มี service ต่างๆดังนี้" />
+			<h:form prependId="false" style="padding-top:15px;">
+                <table width="100%" cellspacing="0" cellpadding="0" border="0" style="background: none; padding: 0px;">
+                    <tbody>
+                        <tr>
+                            <td style="width: 200px;text-align:center;">
+                                <p:commandLink>
+                                    <p:graphicImage value="/images/service/repair_icon.png" />
+                                </p:commandLink>
+                            </td>
+                            <td style="vertical-align: top;">
+                                <h:outputText styleClass="sub-information-header" value="Maintenance"/>
+								<ul id="j_idt44_list" class="ui-datalist-data ui-corner-all" type="disc">
+									<li class="ui-datalist-item">แก้ไขปัญหาที่เกิดจากการใช้งาน Software ของ VeeTouch Software</li>
+									<li class="ui-datalist-item">พนักงานซ่อมบำรุง ถูกอบรมมาอย่างดีและเป็นผู้เฉี่ยวชาญในสาขา</li>
+									<li class="ui-datalist-item">บริการ Upgrade Software version ให้ล่าสุด หรือ เท่าที่ระบบรองรับได้</li>
+									<li class="ui-datalist-item">รับฟังข้อเสนอแนะ และนำไปปรับปรุงแก้ไขระบบให้ดียิ่งขึ้น</li>
+								</ul>
+                                
+								<!--
+								<p:spacer width="5" height="0" />
+                                <p:commandLink styleClass="information-link">
+                                    <h:outputText value="more..." />
+                                </p:commandLink>
+								-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 200px;text-align:center;">
+                                <p:commandLink>
+                                    <p:graphicImage value="/images/service/service_icon.png" />
+                                </p:commandLink>
+                            </td>
+                            <td style="vertical-align: top;">
+                                <h:outputText styleClass="sub-information-header" value="Call Center"/>
+                                <ul id="j_idt44_list" class="ui-datalist-data ui-corner-all" type="disc">
+									<li class="ui-datalist-item">สามารถติดต่อได้ ตั้งแต่ 08:00 – 24:00 ทุกวัน</li>
+									<li class="ui-datalist-item">สามารถให้คำแนะนำในการแก้ปัญหาเบื้องต้นแก่ลูกค้า</li>
+								</ul>
+								<!--
+                                <p:spacer width="5" height="0" />
+                                <p:commandLink styleClass="information-link">
+                                    <h:outputText value="more..." />
+                                </p:commandLink>
+								-->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </h:form>
+			
+        </p:panel>
+	</ui:define>
+
+</ui:composition>
