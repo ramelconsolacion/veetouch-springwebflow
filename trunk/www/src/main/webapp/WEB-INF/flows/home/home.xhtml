@@ -7,6 +7,17 @@
 	template="/WEB-INF/layouts/standard.xhtml">
 	
 	<ui:define name="headermodules">
+		<div class="center-div"> 
+			<p:lightBox>  
+				<h:outputLink value="#" title="">  
+					<p:graphicImage value="/images/home/watch_a_video.png" /> 
+				</h:outputLink>
+				<f:facet name="inline">
+					<p:media value="http://www.youtube.com/v/hgUDfNyb8NY" width="420" height="345" player="flash"/>
+				</f:facet>
+			</p:lightBox>   
+		</div>
+		<!--
 		<p:carousel styleClass="center-div" rows="1" itemStyle="width:700px;height:200px;margin: auto;" effect="easeInStrong" autoPlayInterval="5000" circular="true">
 			<p:tab title="Godfather Part I">  
 		        <h:panelGrid columns="2" cellpadding="10"> 
@@ -15,7 +26,7 @@
 					        <p:graphicImage value="/images/godfather/godfather1.jpg" /> 
 					    </h:outputLink>
 					    <f:facet name="inline">
-					        <p:media value="http://www.youtube.com/v/JvsUkUaJjYs" width="560" height="349" player="flash"/>   
+					        <p:media value="http://www.youtube.com/v/KZnUr8lcqjo" width="560" height="349" player="flash"/>   
 					    </f:facet>
 					</p:lightBox>
 			        <h:outputText  
@@ -26,41 +37,61 @@
 				</h:panelGrid>
     		</p:tab>
 		</p:carousel>
+		-->
 	</ui:define>
 	
 	<ui:define name="content">
-		<div style="width: 100%;display: block;padding-bottom: 10px;">
+		<div style="width: 100%;display: block;padding-bottom: 20px;">
 			<p:panel style="width:100%;" styleClass="news-panel-content">
 				<f:facet name="header" styleClass="news-panel-header" headerClass="news-panel-header">
-					<h:outputText value="About" />
+					<h:outputText value="Why VeeTouch" />
 				</f:facet>
-				<h:outputText value="Twitter FeedTwitter Feed
-					Amplify e-health benefits with an opt-out enrollment model. Learn more. #HumanServices
-					http://bit.ly/lUlTE4 about a day ago from CoTweet
-					Militaries focus on cost of outsourced operations.Contractors must bid and run services right. #PAS
-					http://bit.ly/kmYdWj about a day ago from CoTweet" />
+				<h:panelGrid columns="2" cellpadding="10">
+					<p:graphicImage value="/images/about/vision.png" style="vertical-align:text-top;"/>
+					<h:panelGroup layout="block" style="display:table-cell;">
+					<h:outputText value="Veetouch " style="color:#3990BD;font-weight:bold;" />
+					<h:outputText value="เป็นผู้ให้บริการเช่าโต๊ะสั่งอาหารระบบสัมผัส ออกแบบให้มี Application ต่างๆดังนี้" />
+					<ul id="j_idt44_list" class="ui-datalist-data ui-corner-all" type="disc">
+			        	<li class="ui-datalist-item">Application สั่งอาหาร ร้านค้าสามารถรองรับลูกค้าได้รวดเร็วขึ้น</li>
+						<li class="ui-datalist-item">Application chat ทำให้ลูกค้าสามารถส่งข้อความระหว่างโต๊ะได้ และ Application game ต่างๆ ที่นำมาดึงดูดลูกค้าให้มากขึ้น</li>
+						<li class="ui-datalist-item">Application ที่สามารถเพิ่มมูลค่าเพิ่มให้กับร้านค้าได้อีกด้วยเช่น Application แมคกาซีน สามารถนำโฆษณามาใส่และขายของผ่านโต๊ะ VeeTouch</li>
+						<li class="ui-datalist-item">Application browser</li>
+						<li class="ui-datalist-item">และ อื่นๆอีกมากมาก</li>
+			        </ul>
+					<h:outputText value="ทำไมต้องใช้ ระบบจักการการขาย กับเรา" style="color:#3990BD;font-weight:bold;" />
+					<ul id="j_idt44_list" class="ui-datalist-data ui-corner-all" type="disc">
+						<li class="ui-datalist-item">สร้างรายได้เพิ่มให้กับร้านค้าผ่านทาง โฆษณา และ ดึงดูลูกค้ากลุ่มวัยรุ่น</li>
+						<li class="ui-datalist-item">เพิ่มความโดดเด่นให้กับร้านค้าด้วยระบบ โต๊ะ Multi touch</li>
+						<li class="ui-datalist-item">บริการ Upgrade Software version ให้ล่าสุดอยู่เสอม</li>
+						<li class="ui-datalist-item">บริการทุกวัน 08:00 – 24:00  ไม่เว้นวันหยุด Hotline 08-4673-0268, 08-0933-1434 </li>
+						<li class="ui-datalist-item">มีบริการแก้ปัญหาการใช้งาน</li>
+					</ul>
+					</h:panelGroup>
+				</h:panelGrid>
 			</p:panel>
 		</div>
 		<div style="float:left;padding-right: 20px;padding-left: 5px;">
 			<p:panel styleClass="news-panel-blue">
-				<h:outputText styleClass="news-panel-header" value="News Panel"/>
-				<div class="news-panel-text">
-					<h:outputText value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.   
-				                His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. T  
-				                hrough Michael's life the nature of the family business becomes clear." />
-				</div>
-				<h:form>
+				<h:outputText styleClass="news-panel-header" value="vTable Release"/>
+				<h:panelGrid columns="2" cellpadding="10">
+					<p:graphicImage value="/images/home/table.png" />
+					<h:panelGroup layout="block" style="display:table-cell;">
+						<div class="news-panel-text">
+							<h:outputText value="เปิดตัว vTable โต๊ะสั่งอาหารระบบสัมผัส ออกแบบให้มี Application ในการสั่งอาหาร ร้านค้าสามารถรองรับลูกค้าได้รวดเร็วขึ้น เนื่องจาก ลูกค้าไม่ต้องเรียกพนักงานเพื่อสั่งอาหาร สามารถสั่งอาหารจากโต๊ะได้เลย ยังมีApplication chat ทำให้ลูกค้าสามารถส่งข้อความระหว่างโต๊ะได้ และ Application game" />
+						</div>
+						<h:form>
 					<p:commandButton value="Continue Reading" action="viewProduct" ajax="false" styleClass="news-panel-link"/>
 				</h:form>
+					</h:panelGroup>
+				</h:panelGrid>
+				
 			</p:panel>
 		</div>
 		<div>
 			<p:panel styleClass="news-panel-green">
-				<h:outputText styleClass="news-panel-header" value="News Panel"/>
+				<h:outputText styleClass="news-panel-header" value="vPOS Release"/>
 				<div class="news-panel-text">
-					<h:outputText value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.   
-				                His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. T  
-				                hrough Michael's life the nature of the family business becomes clear." />
+					<h:outputText value="เปิดตัว vPOS ระบบ Point Of Sale สำหรับร้านค้าปลีก และ ยังรองรับการเชื่อมต่อกับโต๊ะ vTable ในการสั่งอาหาร หรือ รองรับโปรแกรม chat ระหว่างโต๊ะ" />
 				</div>
 				<h:form>
 					<p:commandButton value="Continue Reading" action="viewProduct" ajax="false" styleClass="news-panel-link"/>

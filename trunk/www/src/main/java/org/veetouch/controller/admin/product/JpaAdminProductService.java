@@ -3,9 +3,12 @@ package org.veetouch.controller.admin.product;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.validator.ValidatorException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.apache.myfaces.custom.fileupload.UploadedFile;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +29,7 @@ public class JpaAdminProductService implements AdminProductService
 	
 	private String productName = "";
 	private String productDes  = "";
+	private UploadedFile uploadedFile;
 	
 	@PersistenceContext
 	public void setEntityManager(EntityManager em) {
@@ -49,6 +53,16 @@ public class JpaAdminProductService implements AdminProductService
 
 	public void setProductDes(String productDes) {
 		this.productDes = productDes;
+	}
+	
+	public void setUploadedFile(UploadedFile up) 
+	{
+		this.uploadedFile = up;
+	}
+	
+	public UploadedFile getUploadedFile() 
+	{
+		return uploadedFile;
 	}
 
 	public VtMainproduct getSelectedMainProduct() {
@@ -83,6 +97,7 @@ public class JpaAdminProductService implements AdminProductService
 		this.selectedMainProduct = null;
 		this.selectedSubProduct  = null;
 		this.selectedProduct = null;
+		this.uploadedFile = null;
 	}
 	
 	@Transactional
@@ -104,12 +119,27 @@ public class JpaAdminProductService implements AdminProductService
 	}
 	
 	@Transactional
-	public boolean addProduct(ProductUtilService product_service)
+	public boolean addProduct(ProductUtilService product_service,UploadedFile file)
 	{
 		VtProduct product = new VtProduct();
 		product.setName(this.getProductName());
 		product.setDescription(this.getProductDes());
 		product.setVtSubproduct(this.getSelectedSubProduct());
+		/*
+		FacesMessage msg = null;
+		if(file == null)
+		{
+			msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,"File is null.", "Error");  
+			throw new ValidatorException(msg);
+		}
+		msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,"File is Ok."+file.getName(), "Error");  
+		throw new ValidatorException(msg);
+		*/
+		this.uploadedFile = file;
+		if(this.uploadedFile != null)
+		{
+			product.setLogo(this.uploadedFile.getName());
+		}
 		return product_service.addProduct(product);
 	}
 	

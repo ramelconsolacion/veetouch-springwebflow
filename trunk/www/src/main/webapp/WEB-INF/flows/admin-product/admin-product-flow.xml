@@ -6,7 +6,7 @@
 	parent="parent-flow">
 	
 	<var name="productTreeBean" class="org.veetouch.view.product.ProductTreeBean" />
-	<var name="logoUploadBean" class="org.veetouch.view.product.LogoUploadBean" />
+	<var name="fileUploadController" class="org.veetouch.view.product.FileUploadController" />
 	
 	<on-start>
 		<evaluate expression="productTreeBean.init(vt_productUtilService.listMenuMainProduct())"></evaluate>
@@ -47,7 +47,7 @@
 			<evaluate expression="productTreeBean.init(vt_productUtilService.listMenuMainProduct())"></evaluate>
 		</transition>
 		<transition on="add-Product">
-			<evaluate expression="vt_adminproductService.addProduct(vt_productUtilService)"></evaluate>
+			<evaluate expression="vt_adminproductService.addProduct(vt_productUtilService,fileUploadController.getUploadedFile())"></evaluate>
 			<evaluate expression="vt_adminproductService.getProductList()" result="viewScope.products"></evaluate>
 		</transition>
 		<transition on="edit-Product">
@@ -58,6 +58,19 @@
 			<evaluate expression="vt_productUtilService.removeProduct(vt_adminproductService.getSelectedProduct())"></evaluate>
 			<evaluate expression="vt_adminproductService.getProductList()" result="viewScope.products"></evaluate>
 		</transition>
+		
+		<transition on="upload">
+			<evaluate expression="fileUploadController.verifyUploadFile()" />
+		</transition>
 	</view-state>
-
+	
+	<view-state id="file-test">
+		<transition on="add-Product">
+			<evaluate expression="vt_adminproductService.addProduct(vt_productUtilService,fileUploadController.getUploadedFile())"></evaluate>
+		</transition>
+		<transition on="upload">
+			<evaluate expression="fileUploadController.verifyUploadFile()" />
+		</transition>
+	</view-state>
+	
 </flow>

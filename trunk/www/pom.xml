@@ -133,6 +133,21 @@
 			<artifactId>${primefaces-theme}</artifactId>
 			<version>1.0.1</version>
 		</dependency>
+				<!-- Tomahawk Face file upload -->
+		<dependency>
+			<groupId>org.apache.myfaces.tomahawk</groupId>
+			<artifactId>tomahawk20</artifactId>
+			<version>1.1.10</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.myfaces.shared</groupId>
+			<artifactId>myfaces-shared-tomahawk</artifactId>
+			<version>4.0.4</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
         <!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>

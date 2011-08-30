@@ -2,6 +2,7 @@ package org.veetouch.controller.admin.product;
 
 import java.util.List;
 
+import org.apache.myfaces.custom.fileupload.UploadedFile;
 import org.veetouch.controller.product.ProductUtilService;
 import org.veetouch.model.VtMainproduct;
 import org.veetouch.model.VtProduct;
@@ -17,6 +18,8 @@ public interface AdminProductService
 	public void setProductName(String mainProductName);
 	public String getProductDes();
 	public void setProductDes(String productDes);
+	public void setUploadedFile(UploadedFile up);
+	public UploadedFile getUploadedFile();
 	public void clearTempValue();
 	
 	/**
@@ -36,7 +39,7 @@ public interface AdminProductService
 	/**
 	 * Products list
 	 */
-	public boolean addProduct(ProductUtilService product_service);
+	public boolean addProduct(ProductUtilService product_service,UploadedFile file);
 	public VtProduct getSelectedProduct();
 	public void setSelectedProduct(VtProduct selectedProduct);
 	public List<VtProduct> getProductList();
