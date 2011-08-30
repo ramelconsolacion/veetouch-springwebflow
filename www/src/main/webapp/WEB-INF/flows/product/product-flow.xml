@@ -13,8 +13,13 @@
 	<on-start>
 		<evaluate expression="menuNavigator.setPage('PRODUCT')"></evaluate>
 		<evaluate expression="vt_productUtilService.listMenuMainProduct()" result="flowScope.main_products"></evaluate>
-	</on-start>
+	</on-start>	
 	
+	<view-state id="temp-product">
+		
+	</view-state>
+	
+	<!-- 
 	<view-state id="main-product-list">
 		<transition on="viewSubProduct" to="sub-product-list">
 		</transition>
@@ -34,5 +39,5 @@
 		<transition on="viewSubProduct" to="sub-product-list">
 		</transition>
 	</view-state>
-
+	 -->
 </flow>

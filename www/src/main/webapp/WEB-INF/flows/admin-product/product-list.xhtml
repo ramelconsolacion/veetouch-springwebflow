@@ -4,18 +4,17 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:t="http://myfaces.apache.org/tomahawk" 
 	template="/WEB-INF/layouts/admin-standard.xhtml">
 	
 	<ui:define name="content">
-		<h:form enctype="multipart/form-data">  
-			<p:fileUpload fileUploadListener="#{logoUploadBean.handleFileUpload}"  
-            			mode="advanced"   
-            			update="messages"  
-            			sizeLimit="100000"
-            			allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
-            <p:growl id="messages" showDetail="true"/>
+		<h:form enctype="multipart/form-data">
+		  	<h:panelGrid columns="1">
+		    	<t:inputFileUpload value="#{fileUploadController.uploadedFile}" storage="default" />
+		  	</h:panelGrid>
+		  	<h:commandButton value="Upload File" action="upload" />
+			<h:commandButton value="Cancel" action="cancel" ajax="false"/>
 		</h:form>
-	
 		<p:layout style="width:auto;height:800px;">
 			<p:layoutUnit position="left" scrollable="true" collapsible="true" width="250">
 				<h:form id="leftPanel">
@@ -133,16 +132,23 @@
 		</p:dialog>
 		
 		<p:dialog  widgetVar="addProduct" header="New Product" modal="true" hideEffect="explode">
-			<h:form>
+			<h:form enctype="multipart/form-data">
 				<p:messages />
 				<h:panelGrid columns="2">
 					<h:outputLabel value="Product Name * " for="addProduct_Name"/>
 					<h:inputText id="addProduct_Name" value="#{vt_adminproductService.productName}" required="true"/>
 					<h:outputLabel value="Description " />
 					<p:editor widgetVar="addProduct_Des" lazy="true" value="#{vt_adminproductService.productDes}" width="600" />
-					<p:commandButton type="submit" value="save"   action="add-Product" update="@form,:centerPanel" oncomplete="resultStatus(xhr, status, args,addProduct);"/>
+					<h:outputLabel value="Logo image " />
+					<h:panelGrid columns="2">
+		    			<t:inputFileUpload value="#{fileUploadController.uploadedFile}" storage="default" />
+		  			</h:panelGrid>
+		  			<h:commandButton value="save"   action="add-Product" update="@form,:centerPanel" oncomplete="resultStatus(xhr, status, args,addProduct);"/>
+		  			<h:commandButton value="cancel" onclick="addProduct.hide()" immediate="true" />
+		  			<!-- 
+		  			<p:commandButton type="submit" value="save"   action="add-Product" update="@form,:centerPanel" oncomplete="resultStatus(xhr, status, args,addProduct);"/>
 					<p:commandButton type="reset"  value="cancel" onclick="addProduct.hide()" immediate="true" />
-				
+					 -->
 				</h:panelGrid>
 			</h:form>
 		</p:dialog>

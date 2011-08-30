@@ -1,0 +1,36 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:t="http://myfaces.apache.org/tomahawk" 
+	template="/WEB-INF/layouts/admin-standard.xhtml">
+	
+	<ui:define name="content">
+		<h:form enctype="multipart/form-data">
+			<p:messages />
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Product Name * " for="addProduct_Name"/>
+				<h:inputText id="addProduct_Name" value="#{vt_adminproductService.productName}" required="true"/>
+				<h:outputLabel value="Description " />
+				<p:editor widgetVar="addProduct_Des" lazy="true" value="#{vt_adminproductService.productDes}" width="600" />
+				<h:outputLabel value="Logo image " />
+				<h:panelGrid columns="2">
+	    			<t:inputFileUpload value="#{fileUploadController.uploadedFile}" storage="default" />
+	  			</h:panelGrid>
+	  			<h:commandButton value="save"   action="add-Product"/>
+				<h:commandButton value="cancel" action="cancel" />
+			</h:panelGrid>
+		</h:form>
+	
+		<h:form enctype="multipart/form-data">
+		  	<h:panelGrid columns="1">
+		    	<t:inputFileUpload value="#{fileUploadController.uploadedFile}" storage="default" />
+		  	</h:panelGrid>
+		  	<h:commandButton value="Upload File" action="upload" />
+			<h:commandButton value="Cancel" action="cancel" ajax="false"/>
+		</h:form>
+	</ui:define>
+	
+</ui:composition>

@@ -1,0 +1,79 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+	Functional
+	Use for display
+		- SubProduct Name
+		- SubProduct description
+		- Product list
+ -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:c="http://java.sun.com/jsp/jstl/core"
+	  			xmlns:p="http://primefaces.prime.com.tr/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+	
+	<ui:define name="content">
+		<p:breadCrumb id="breadcrumb">
+			<p:menuitem value="Home" url="product" />
+			<p:menuitem value="Overall Product" url="product" />
+		</p:breadCrumb>
+		<p:separator style="width:0px;height:0px;visibility:hidden;" />
+		<p:panel style="width:100%;" styleClass="news-panel-content">
+			<h:form prependId="false" style="padding-top:15px;">
+				<table width="100%" cellspacing="0" cellpadding="0" border="0" style="background: none; padding: 0px;">
+					<tbody>
+						<tr>
+							<td style="vertical-align: top;">
+								<h:outputText styleClass="sub-information-header" value="vMenu"/>
+								<h:outputText value="Application สำหรับ สั่งอาหาร และเครื่องดื่ม" />
+								<p:separator style="width:0px;height:0px;visibility:hidden;" />
+								<p:graphicImage value="/images/product/vMenu.png" />
+								<p:separator style="width:0px;height:0px;visibility:hidden;" />
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align: top;">
+								<h:outputText styleClass="sub-information-header" value="vBrowser"/>
+								<h:outputText value="Web Browser Application" />
+								<p:separator style="width:0px;height:0px;visibility:hidden;" />
+								<p:graphicImage value="/images/product/vBrowser.png" />
+								<p:separator style="width:0px;height:0px;visibility:hidden;" />
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align: top;">
+								<h:outputText styleClass="sub-information-header" value="vTemplate"/>
+								<h:outputText value="ปรับแต่ง พื้นหลังให้สวยงาม และ เพิ่ม effect ให้กับตัวโต๊ะ" />
+								<p:separator style="width:0px;height:0px;visibility:hidden;" />
+								<p:graphicImage value="/images/product/vTemplate.png" />
+								<p:separator style="width:0px;height:0px;visibility:hidden;" />
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align: top;">
+								<h:outputText styleClass="sub-information-header" value="vChat"/>
+								<h:outputText value="Chat Application สามารถสนทนากันระหว่างโต๊ะภายในร้านค้าได้" />
+								<p:separator style="width:0px;height:0px;visibility:hidden;" />
+								<p:graphicImage value="/images/product/vChat.png" />
+								<p:separator style="width:0px;height:0px;visibility:hidden;" />
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align: top;">
+								<h:outputText styleClass="sub-information-header" value="Game"/>
+								<h:outputText value="มีเกมหลากหลายให้เล่นแก้เบื่อขณะรออาหาร" />
+								<p:separator style="width:0px;height:0px;visibility:hidden;" />
+								<p:graphicImage value="/images/product/vGame1.png" />
+								<p:graphicImage value="/images/product/vGame2.png" />
+								<p:separator style="width:0px;height:0px;visibility:hidden;" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</h:form>
+		</p:panel>
+	</ui:define>
+				
+</ui:composition>
